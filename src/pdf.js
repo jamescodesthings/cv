@@ -86,6 +86,19 @@ async function inlineAssets(html) {
     }
   }
 
+  const imgRegex = /<img([^>]*)src="([^"]+)"([^>]*)>/g;
+  for (const match of [...html.matchAll(imgRegex)]) {
+    const src = match[2];
+    if (src.startsWith('http') || src.startsWith('//') || src.startsWith('data:')) continue;
+    const absPath = resolve(publicDir, src);
+    try {
+      const dataUri = await toDataUri(absPath);
+      result = result.replace(match[0], `<img${match[1]}src="${dataUri}"${match[3]}>`);
+    } catch {
+      debug(`Warning: could not inline image ${src}`);
+    }
+  }
+
   return result;
 }
 
@@ -102,9 +115,7 @@ function applyDarkClass(html, dark) {
 function applyVariant(baseData, variant) {
   return {
     ...baseData,
-    coverLetter: variant.coverLetter
-      ? { ...baseData.coverLetter, ...variant.coverLetter }
-      : baseData.coverLetter,
+    coverLetter: variant.coverLetter ? { ...baseData.coverLetter, ...variant.coverLetter } : baseData.coverLetter,
     showProjects: variant.showProjects ?? false,
   };
 }
