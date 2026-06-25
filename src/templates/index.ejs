@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James Macmillan - CV</title>
+    <meta name="description" content="CV - James Macmillan, Senior Software Engineer." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="James Macmillan - CV" />
+    <meta property="og:url" content="https://codesthings.com/cv/" />
+    <meta property="og:image" content="https://codesthings.com/assets/logo/logo.png" />
+    <meta property="og:site_name" content="codesthings.com" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <%- include('sections/dark-mode-switch') %>
+    <%- include('sections/cover-letter', { sidebar, coverLetter, profile }) %>
+    <div class="page-break"></div>
+    <%- include('sections/experience', { sidebar, experience, profile }) %>
+    <div class="page-break"></div>
+    <%- include('sections/skills', { sidebar, skills, education }) %>
+    <% if (showProjects) { %>
+    <div class="page-break"></div>
+    <%- include('sections/projects', { sidebar, projects }) %>
+    <% } %>
+    <%- include('sections/footer') %>
+    <script src="js/theme.js"></script>
+  </body>
+</html>
