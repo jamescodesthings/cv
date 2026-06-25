@@ -1607,7 +1607,7 @@ p:has(.published) {
     position: static;
   }
   .about-grid {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 160px 1fr;
   }
 
   .section {
