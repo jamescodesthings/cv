@@ -13,9 +13,7 @@ debug.enabled = true;
 function applyVariant(baseData, variant) {
   return {
     ...baseData,
-    coverLetter: variant.coverLetter
-      ? { ...baseData.coverLetter, ...variant.coverLetter }
-      : baseData.coverLetter,
+    coverLetter: variant.coverLetter ? { ...baseData.coverLetter, ...variant.coverLetter } : baseData.coverLetter,
     showProjects: variant.showProjects ?? false,
   };
 }
@@ -54,6 +52,11 @@ async function build() {
   const indexTemplatePath = resolve(root, config.templateDir, 'index.ejs');
   const html = await renderTemplate(indexTemplatePath, { ...data, formatDate });
   await writeFile(`${outputDir}/index.html`, html);
+
+  debug('Rendering 404.html');
+  const notFoundTemplatePath = resolve(root, config.templateDir, '404.ejs');
+  const notFoundHtml = await renderTemplate(notFoundTemplatePath, {});
+  await writeFile(`${outputDir}/404.html`, notFoundHtml);
 
   const buildEnd = Date.now();
   debug(`Build Complete (${((buildEnd - buildStart) / 1000).toFixed(2)}s)\n`);
