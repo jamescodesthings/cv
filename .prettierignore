@@ -1,0 +1,12 @@
+# Prettier Ignore file
+package-lock.json
+
+# Generated output
+public/
+pages/
+
+# Dependencies
+node_modules/
+
+# Raw source files
+raw/
