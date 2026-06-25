@@ -1611,13 +1611,13 @@ p:has(.published) {
   }
 
   .section {
-    margin-top: var(--space-xl);
+    margin-top: var(--space-2xl);
     padding-top: 0;
     padding-bottom: 0;
   }
 
   .section-title {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 
   /* Hide interactive and non-CV elements */
@@ -1681,19 +1681,28 @@ p:has(.published) {
   .experience-entry {
     border: none;
     padding: 0;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-xl);
   }
 
   .experience-header {
-    margin-bottom: 0;
+    margin-bottom: var(--space-sm);
+  }
+
+  .profile-summary {
+    margin-bottom: var(--space-md);
+  }
+
+  .skills-meta {
+    margin-bottom: var(--space-md);
+  }
+
+  .bento-grid {
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
   }
 
   .tech-badges {
     margin-top: 0.4rem;
     margin-bottom: 0.4rem;
-  }
-
-  .bento-grid {
-    margin-bottom: 0;
   }
 }
