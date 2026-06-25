@@ -122,10 +122,10 @@ function applyVariant(baseData, variant) {
 
 async function gotenbergConvert(html, outputPath) {
   const formData = new FormData();
-  formData.append('marginTop', '0');
-  formData.append('marginBottom', '0');
-  formData.append('marginLeft', '0');
-  formData.append('marginRight', '0');
+  formData.append('marginTop', '0.5');
+  formData.append('marginBottom', '0.5');
+  formData.append('marginLeft', '0.5');
+  formData.append('marginRight', '0.5');
   formData.append('printBackground', 'true');
   formData.append('files', new Blob([html], { type: 'text/html' }), 'index.html');
 
