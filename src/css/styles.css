@@ -303,7 +303,7 @@ html:not(.dark) .icon-moon {
 .section-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-xl);
+  padding: 0 var(--space-2xl);
 }
 
 .section-label {
