@@ -3,6 +3,7 @@
 
 # Claude Code
 .claude/
+.state/
 CLAUDE.md
 docs/
 .superpowers/
