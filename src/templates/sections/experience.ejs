@@ -1,7 +1,7 @@
 <section class="section" data-animate>
   <div class="section-inner">
-    <span class="section-label"><span class="print-hide">02 - </span>EXPERIENCE</span>
-    <h2 class="section-title">Where I've Worked</h2>
+    <span class="section-label">02 - EXPERIENCE</span>
+    <h2 class="section-title">Experience</h2>
 
     <div class="profile-summary">
       <% profile.forEach(paragraph => { %>
@@ -14,7 +14,7 @@
       <article class="experience-entry">
         <div class="experience-header">
           <div class="experience-meta">
-            <span class="experience-number"><%= String(index + 1).padStart(2, '0') %></span>
+            <span class="experience-number"><%= ['a','b','c','d','e'][index] %>.</span>
             <span class="experience-dates">
               <%= formatDate(job.from) %> - <%= job.to ? formatDate(job.to) : 'Present' %>
             </span>
@@ -36,7 +36,7 @@
           <% }); %>
         </div>
         <% } %> <% if (job.detail) { %>
-        <div class="experience-detail <%= index > 0 ? 'print-hide' : '' %>">
+        <div class="experience-detail">
           <% job.detail.forEach(group => { %>
           <div class="detail-group">
             <% group.forEach(paragraph => { %>
