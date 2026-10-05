@@ -2,7 +2,7 @@
   "contact": {
     "phone": "removed",
     "email": "james@codesthings.com",
-    "address": "Midlands, UK."
+    "address": "Birmingham, UK."
   },
   "socials": {
     "linkedin": "https://www.linkedin.com/in/jamescodesthings/",
@@ -11,13 +11,13 @@
       "display": "removed"
     }
   },
-  "availability": "1 Month",
+  "availability": "Immediate",
   "stacks": [
-    "My favourite stack these days is Node.js running on Lambdas or containers, backed by a solid RDS and object storage setup. On the front end, I enjoy working with React (or similar component-based frameworks), styled with Tailwind and bundled up nicely. For mobile, I've been a long-time fan of Ionic but I'm open to exploring other frameworks like React Native or Flutter, depending on the project requirements.",
-    "That said, I've worked across a range of setups; from traditional stacks with Node and .NET Core APIs deployed on AWS (via containers, EC2s, and Lambdas), to static and server-side rendered sites. Recently I've enjoyed working on cloud-native applications in AWS and GCP, leveraging the power of serverless architectures and microservices to build scalable and efficient systems."
+    "Over the last few years my focus has driven more towards the system being built, rather than a particular set of stacks or languages I work with. I consider myself a polyglot developer, and usually find it easy to hit the ground running on a new platform.",
+    "I have worked with lots of different technologies, but find myself regularly expanding into new territory to deliver a product. Below is a short sample of some of the major technologies I've worked with, but it's becoming impractical to list everything here. If you have a particular tech requirement that's not listed, please reach out; I can let you know my experience level there."
   ],
   "interests": [
-    "Outside of work, I'm a keen photographer and avid reader, and I've recently been getting really into 3D modelling. My interests shift and grow over time, but a few creative passions have stuck with me.",
-    "I enjoy learning new things to stretch my thinking and grow as a developer; over the past few years I've explored game programming, machine learning, and parametric modelling. Picking up new paradigms and ways of thinking helps me stay sharp and keeps my curiosity alive."
+    "Outside of work, I'm a keen photographer, and I consider myself a Maker nowadays; I have a growing Makerworld presence, and have created projects with little pockets of worldwide appeal, like my <a href=\"https://www.codesthings.com/campsnap\">CampSnap Filter Packs</a>. My interests shift and grow over time, but a few creative passions have stuck with me.",
+    "I enjoy learning new things to stretch my thinking and grow as a person; I was recently diagnosed with ADHD, over the last few years I've been learning about how my brain works, and how to work with it, rather than against it."
   ]
 }

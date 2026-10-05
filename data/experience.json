@@ -2,23 +2,23 @@
   {
     "employer": "Songtradr",
     "from": "2023-03-28",
-    "summary": "Ingesting the world's music one release at a time.",
+    "to": "2026-08-27",
+    "summary": "RHIME (Rights Holder, Ingestion, Media engineering, and more.)",
     "tech": [
-      { "label": "AWS", "icon": "devicon-amazonwebservices-original" },
       { "label": "GCP", "icon": "devicon-googlecloud-plain" },
+      { "label": "AWS", "icon": "devicon-amazonwebservices-original" },
       { "label": "Node.js", "icon": "devicon-nodejs-plain" },
-      { "label": ".Net", "icon": "devicon-dotnetcore-plain" },
-      { "label": "Terraform", "icon": "devicon-terraform-plain" }
+      { "label": ".Net", "icon": "devicon-dotnetcore-plain" }
     ],
     "detail": [
       [
-        "I joined the Media Delivery and Ingestion team, where I worked on building and maintaining large-scale, serverless applications that handled the ingestion, processing, and global distribution of music and its metadata.",
-        "I contributed to re-platforming key parts of the output pipeline, including pricing logic and global availability handling, and helped implement a scalable document store to support responsive release ingestion."
+        "In 2023 I joined Songtradr to work on the music ingestion platform, which handles millions of releases daily, integrating with suppliers, third-parties, and clients.",
+        "I worked on a variety of high value projects, including spinning up a large scale search service, building a master metadata store and migrating away from a legacy database application to a modern, cloud-native workflow, working in team and with the third parties to respond to new standards, requirements and technologies.",
+        "Our team was responsible for media ingestion and delivery, along with rights-holder information management. But, in my time at Songtradr, I contributed to security and support, platform and application design, data analysis, and other areas well outside of our prescribed remit."
       ],
       [
-        "The role gave me deep exposure to fast-paced, pragmatic development using XP practices and TDD.",
-        "The team focused on using the right tool for the job, delivering robust, high-performance solutions while cutting unnecessary complexity and waste.",
-        "We made it a priority to empower business users with fast, reliable access to the data they needed, supporting both internal goals and growing client demands."
+        "The role focused on pragmatic development using XP practices, pairing remotely to efficiently manage our workload, continuously re-prioritising to maximise ROI on our time, with strong software engineering values and practices to deliver high quality software in good time.",
+        "We aimed to always use the right tool for the job, Keep It Stupid Simple (KISS), and identify when a solution exists outside of software development to the problems we were presented."
       ]
     ]
   },
@@ -26,23 +26,24 @@
     "employer": "Engineius",
     "from": "2020-07-01",
     "to": "2023-02-01",
-    "summary": "Overhauling, updating, and improving Mobile and Web apps.",
+    "summary": "Robust mobile and web development with the user's needs at heart",
     "tech": [
+      { "label": "Android", "icon": "devicon-android-plain" },
+      { "label": "iOS", "icon": "devicon-apple-plain" },
       { "label": "Typescript", "icon": "devicon-typescript-plain" },
-      { "label": ".net core", "icon": "devicon-dotnetcore-plain" },
       { "label": "Angular", "icon": "devicon-angularjs-plain" },
-      { "label": "Nativescript", "icon": "/assets/icons/nativescript-logo.png", "iconType": "image" },
-      { "label": "MySQL", "icon": "devicon-mysql-plain" }
+      { "label": ".Net", "icon": "devicon-dot-net-plain" }
     ],
     "detail": [
       [
-        "I was tasked with overhauling the Engineius mobile app, while transitioning its development in house.",
-        "I significantly improved the performance, UX/UI, stability and maintainability of the app.",
-        "I also worked to significantly improve the architecture and performance of the company's main web app."
+        "In 2020, height of COVID I joined Engineius to work on their mobile app. The app was in production but didn't meet its users needs. I worked with the users, the business stakeholders and the other engineers to repair, rebuild, and then restyle it and make it fit for purpose.",
+        "When I came on board the mobile app was in a poor state, the logging and analytics showed CTDs on most sessions, its functionality had been designed with the system in mind, and its styling left minimal to non-existent.",
+        "Working over 6 months to a year with the business stakeholders and end users I made the app robust, fit for purpose and beautiful. The app uses a hybrid framework with Typescriopt and Angular but I also wrote a significant portion of the Android & iOS integration to hook core mobile features (GPS, Camera, Background Running services and Permissions management) using a mix of Java, Swift and Objective-C. Some still alive today as open source projects."
       ],
       [
-        "I delivered multiple business derived projects working closely with the end users involved.",
-        "I also lead and mentored new employees on the mobile app's development."
+        "Once the app was stable, and new feature work was going into it I put my full-stack skills to good use. I refactored the front end build and SPA server in webpack, C# .Net and delivered new APIs and features to the full platform.",
+        "I delivered multiple business derived projects working closely with the end users involved, some of whom were remote, in poor signal areas. I also produced a model to classify driver behaviour and deliver actionable insights about what our users actually needed.",
+        "Near the end of my time with Engineius I recruited in the team, mentored the new colleagues and brought them up to speed and delivering new features quickly."
       ]
     ]
   },
@@ -50,25 +51,19 @@
     "employer": "Packt",
     "from": "2017-11-01",
     "to": "2020-01-01",
-    "summary": "Shipping the mobile app for the Subscription platform and going Serverless.",
+    "summary": "Making the learning platform mobile, and going Serverless.",
     "tech": [
       { "label": "Node.js", "icon": "devicon-nodejs-plain" },
       { "label": "AWS", "icon": "devicon-amazonwebservices-plain" },
       { "label": "Serverless", "icon": "/assets/icons/sls.svg", "iconType": "image" },
       { "label": "Angular", "icon": "devicon-angularjs-plain" },
-      { "label": "Cordova", "icon": "/assets/icons/cordova_256.png", "iconType": "image" },
-      { "label": "Postgres", "icon": "devicon-postgresql-plain" }
+      { "label": "Capacitor", "icon": "devicon-capacitor-plain" }
     ],
     "detail": [
       [
-        "I worked with Packt for 2 years on the Subscription platform.",
-        "I was initially hired to expand the web application into a cross platform mobile app.",
-        "I was also instrumental in migrating the API to use the Serverless framework on AWS.",
-        "I worked with a team of developers with varying skill sets, helping to upskill and train new members of the team."
-      ],
-      [
-        "My development career became very focussed on Javascript stacks, writing brilliant code to solve complex solutions on a variety of platforms.",
-        "During my time with Packt I endeavoured to improve code quality across the stack, helping develop and implement the code style used in house."
+        "In 2017 I joined Packt to work on the subscription platform, with a target of making the Platform mobile, setting up its CI and infrastructure, managing its support, and then integrating with the team to bring new features to life on the web platform and mobile app.",
+        "Once embedded in the team and working on the whole platform, we took on migration to a microservice architecture, with serverless running the platform's backend and APIs. In the early days of serverless applications, I took on development of multiple production microservices, rebuilding their architecture and porting them to microservices. I also drove the development of areas I'd been heavily involved with in the past, including data analysis, payment integration, front-end build toolchain development, CI/CD workflow development, and more.",
+        "I mentored multiple new developers, coming to software engineering from different backgrounds, and I worked closely with a large offshore team to improve the overall development practices and standards."
       ]
     ]
   },
@@ -76,28 +71,21 @@
     "employer": "Severn Trent",
     "from": "2012-09-01",
     "to": "2017-10-01",
-    "summary": "Delivering web and mobile apps to drive the business forward.",
+    "summary": "Web and Mobile Support and Development in a FTSE 100 Company",
     "tech": [
-      { "label": ".Net", "icon": "devicon-dot-net-plain" },
-      { "label": "SQL Server", "icon": "devicon-microsoftsqlserver-plain" },
-      { "label": "Cordova", "icon": "/assets/icons/cordova_256.png", "iconType": "image" },
-      { "label": "Angular", "icon": "devicon-angularjs-plain" },
-      { "label": "AWS", "icon": "devicon-amazonwebservices-plain" },
       { "label": "Java", "icon": "devicon-java-plain" },
-      { "label": "Bootstrap", "icon": "devicon-bootstrap-plain" }
+      { "label": ".Net", "icon": "devicon-dot-net-plain" },
+      { "label": "Typescript", "icon": "devicon-typescript-plain" },
+      { "label": "CSS", "icon": "devicon-css3-plain" }
     ],
     "detail": [
       [
-        "I worked with Severn Trent PLC for 5 years developing a multitude of software solutions deployed to a wide variety of platforms."
-      ],
-      [
-        "Later in the role my forté was developing brilliant PWAs and Hybrid Mobile apps for use throughout the company.",
-        "During my time with Severn Trent I developed solid, maintainable applications in the correct technology for the solution."
-      ],
-      [
-        "I worked with an ever changing tech stack to improve speed of delivery, starting with a Java & Spring backend, moving through .Net and landing on Node.js",
-        "All the time improving my core skills in Design, Prototyping, Testing, Computer Law, Security, and implementing best practice.",
-        "I jumped at the opportunity to lead my team, train our new starters, and suggest the ideal solution to complex software problems."
+        "After Univesity, I joined Severn Trent in a cross-functional team. We were a mix of thir-tier tech support and active software development.",
+        "Initially I worked on a niche, Java-backed, CMS platform. I soon made use of my full-stack web development skills by contributing to the Customer Portal and a multitude of complex applications used to run the business.",
+        "I initially worked in Java, Spring & the Play framework to deploy MVC web-apps backed by SQL Sever datastores. I then got to pick up C# .Net to improve, restyle, support and manage the company's Card Payments applications.",
+        "The team's remind expanded when the company went mobile, so I learned cross platform mobile development, Android and iOS development, and worked on the early days of Mobile Device Management. Through my time at Severn Trent the web changed a lot and I got to change with it; going from jQuery and Bootstrap being the de-facto tools for the job, to flux architecture, SPAs, mobile-first development and micro-sites as the new standard.",
+        "I was involved with multiple high profile web development and design projects, like the redesign of the Customer Portal, and apps in the wider platform. Other developers called on me for support from across the engineering function for my in depth knowledge of full-stack web development.",
+        "By the end of my time with Severn Trent I'd deployed multiple web and mobile apps across their fleet, managed multiple full-stack web apps and their users, demonstrated to investors and stakeholders, worked with their partners to help them quickly engage in new markets, and brought new team members into the team and up to speed."
       ]
     ]
   }
