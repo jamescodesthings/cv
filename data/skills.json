@@ -43,42 +43,42 @@
   },
   {
     "slug": "node-js",
-    "name": "NodeJS",
+    "name": "Node.js",
     "icon": "devicon-nodejs-plain",
     "type": "platform",
     "layer": "server-side"
   },
   {
     "slug": "dotnet-core",
-    "name": ".net core",
+    "name": ".NET Core",
     "icon": "devicon-dotnetcore-plain",
     "type": "platform",
     "layer": "server-side"
   },
   {
     "slug": "html",
-    "name": "HTML 5",
+    "name": "HTML5",
     "icon": "devicon-html5-plain",
     "type": "language",
     "layer": "front-end"
   },
   {
     "slug": "css",
-    "name": "CSS 3",
+    "name": "CSS3",
     "icon": "devicon-css3-plain",
     "type": "language",
     "layer": "front-end"
   },
   {
     "slug": "javascript",
-    "name": "Javascript",
+    "name": "JavaScript",
     "icon": "devicon-javascript-plain",
     "type": "language",
     "layer": "full-stack"
   },
   {
     "slug": "typescript",
-    "name": "Typescript",
+    "name": "TypeScript",
     "icon": "devicon-typescript-plain",
     "type": "language",
     "layer": "full-stack"

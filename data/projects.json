@@ -5,8 +5,8 @@
     "name": "Portal Architecture",
     "from": "2021-01-01",
     "tech": [
-      { "label": "Typescript", "icon": "devicon-typescript-plain" },
-      { "label": ".net core", "icon": "devicon-dotnetcore-plain" },
+      { "label": "TypeScript", "icon": "devicon-typescript-plain" },
+      { "label": ".NET Core", "icon": "devicon-dotnetcore-plain" },
       { "label": "Angular", "icon": "devicon-angularjs-plain" }
     ],
     "leader": "Updated the Web Portal's architecture to split front end and api.",
@@ -44,7 +44,7 @@
       ],
       [
         "I started by implementing some node best practices; dependency pinning, auto formatting & linting with CI layer build checks.",
-        "I then upgraded the underlying frameworks to their latest stable versions, this included bringing Nativecsript to v7+ and Angular to 12+.",
+        "I then upgraded the underlying frameworks to their latest stable versions, this included bringing NativeScript to v7+ and Angular to 12+.",
         "As these were significant major version releases there was lots of in depth analysis and retest work along with the development."
       ],
       [
