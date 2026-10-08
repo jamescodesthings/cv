@@ -77,13 +77,9 @@ async function inlineAssets(html) {
   for (const match of [...html.matchAll(scriptRegex)]) {
     const src = match[1];
     if (src.startsWith('http') || src.startsWith('//')) continue;
-    const absPath = resolve(publicDir, src);
-    try {
-      const js = await fsReadFile(absPath, 'utf-8');
-      result = result.replace(match[0], `<script>${js}</script>`);
-    } catch {
-      debug(`Warning: could not inline script ${src}`);
-    }
+    // Local scripts only drive the theme toggle and scroll animations. Left in, theme.js reads
+    // prefers-color-scheme in Gotenberg's Chromium and strips the dark class, so drop them.
+    result = result.replace(match[0], '');
   }
 
   const imgRegex = /<img([^>]*)src="([^"]+)"([^>]*)>/g;
@@ -127,6 +123,8 @@ async function gotenbergConvert(html, outputPath) {
   formData.append('marginLeft', '0');
   formData.append('marginRight', '0');
   formData.append('printBackground', 'true');
+  // The devicon font comes from a CDN; without this the first PDF can print before it loads.
+  formData.append('waitForExpression', "document.fonts.status === 'loaded' && document.fonts.check('16px devicon')");
   formData.append('files', new Blob([html], { type: 'text/html' }), 'index.html');
 
   const response = await fetch(`${GOTENBERG_URL}/forms/chromium/convert/html`, {

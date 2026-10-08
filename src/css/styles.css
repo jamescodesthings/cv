@@ -1598,6 +1598,11 @@ p:has(.published) {
    Print Styles
    ============================================ */
 
+@page {
+  margin: 12mm 0;
+  background: var(--color-bg);
+}
+
 @media print {
   :root {
     --text-display: 2rem;
