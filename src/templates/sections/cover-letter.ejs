@@ -17,10 +17,6 @@
           <h3 class="label lg">Contact</h3>
           <ul class="contact-list">
             <li>
-              <span class="contact-label">Phone</span>
-              <a href="tel:<%= sidebar.contact.phone %>"><%= sidebar.contact.phone %></a>
-            </li>
-            <li>
               <span class="contact-label">Email</span>
               <a href="mailto:<%= sidebar.contact.email %>"><%= sidebar.contact.email %></a>
             </li>
@@ -29,12 +25,12 @@
               <a href="<%= sidebar.contact.website %>"><%= sidebar.contact.website %></a>
             </li>
             <li>
-              <span class="contact-label">Github</span>
+              <span class="contact-label">GitHub</span>
               <a href="<%= sidebar.contact.github %>">jamescodesthings</a>
             </li>
             <li>
               <span class="contact-label">LinkedIn</span>
-              <a href="www.linkedin.com/in/jamescodesthings">linkedin.com/in/jamescodesthings</a>
+              <a href="<%= sidebar.socials.linkedin %>">linkedin.com/in/jamescodesthings</a>
             </li>
             <li>
               <span class="contact-label">Location</span>
@@ -48,11 +44,6 @@
               </div>
             </li>
           </ul>
-          <div class="contact-socials print-hide">
-            <a href="<%= sidebar.socials.whatsapp.url %>" target="_blank" rel="noopener noreferrer" class="social-link"
-              >WhatsApp</a
-            >
-          </div>
         </div>
       </div>
       <div class="about-main">

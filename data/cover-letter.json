@@ -1,15 +1,10 @@
 {
   "seeking": true,
   "content": [
-    "Hi, I'm James, a Senior Software Engineer based around Birmingham.",
-    "I'm currently on the lookout for remote opportunities as a Senior Software Engineer. With almost 15 years of commercial web development experience and over 5 years building cross-platform mobile applications, I bring a deep understanding of software development to any team.",
-    "Over the past three years, I delivered and operated multiple large scale production services over GCP and AWS, working in an awesome team of engineers, using XP practices and pairing remotely every day to deliver high quality, robust features on time.",
-    "As web development has evolved, so have I. I started with front-end web development in the early 2000s, then picked up Java in my education, eventually bringing it into my first commercial role. After that, I moved over to .NET and C#, and picked up Node in the 2010s. I've worked on loads of platforms, frameworks, and languages, some everyday, some weird and wonderful.",
-    "Front end development has always been a passion of mine. I started learning HTML and CSS in my youth when I took an interest in how websites were made. I handled multiple redesign and rebrand projects for my employers, and I have kept fresh with design changes as the web has evolved.",
-    "In the 2010s I picked up mobile development, and have been building web and mobile apps since. All the while I was involved in the back-end, data analysis and infrastructure of the services to drive forward delivery without bottlenecks.",
-    "Over the last few years, I've helped adoption of AI tooling. I have delivered multiple talks on risks and their mitigation, tooling and best practices to make the tooling approachable to my peers. The landscape changes rapidly, and I enjoy keeping up to date with the latest developments, understanding how stuff works, and helping others gain the benefits of my experience.",
-    "I'd be a strong addition to any dev team looking for a seasoned, pragmatic engineer who can hit the ground running. I thrive on delivering high quality software with a solid understanding of development, and the skills required to deliver it, not just on my own, but with the team and business around me.",
-    "Thanks for taking the time to check out my CV, please get in touch if you're interested in working with me."
+    "Hi, I'm James, a Senior Software Engineer based in Birmingham, looking for a remote senior role.",
+    "I have 14 years of commercial experience across web, mobile and cloud. Most recently at Songtradr, I re-engineered a music ingestion platform from 250k to over a million releases a day, delivered sub-second search where queries had taken 30 seconds, and took load off a database costing ~$30k a month. Before that, I took a mobile app that crashed in most sessions to 99.9%+ crash-free, and cut a portal's rebuild time from five minutes to thirty seconds.",
+    "I work best in teams that pair, ship often and choose the simplest thing that works. I ran a series of knowledge-share talks on adopting AI coding tools safely and well, and I like helping the developers around me get better.",
+    "Thanks for reading. If that sounds like what your team needs, I'd like to hear from you."
   ],
   "notSeekingContent": [
     "Hey, I'm James, a Senior Software Engineer based in The Midlands.",

@@ -35,16 +35,12 @@
           </span>
           <% }); %>
         </div>
-        <% } %> <% if (job.detail) { %>
-        <div class="experience-detail">
-          <% job.detail.forEach(group => { %>
-          <div class="detail-group">
-            <% group.forEach(paragraph => { %>
-            <p><%= paragraph %></p>
-            <% }); %>
-          </div>
+        <% } %> <% if (job.highlights) { %>
+        <ul class="experience-highlights">
+          <% job.highlights.forEach(item => { %>
+          <li><%- item %></li>
           <% }); %>
-        </div>
+        </ul>
         <% } %>
       </article>
       <% }); %>

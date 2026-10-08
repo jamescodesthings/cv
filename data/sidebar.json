@@ -1,26 +1,19 @@
 {
   "contact": {
-    "phone": "removed",
     "email": "james@codesthings.com",
     "github": "https://github.com/jamescodesthings/",
     "website": "https://codesthings.com",
     "makerworld": "https://makerworld.com/en/@jamescodesthing",
-    "address": "Birmingham, UK."
+    "address": "Birmingham, UK"
   },
   "socials": {
-    "linkedin": "https://www.linkedin.com/in/jamescodesthings/",
-    "whatsapp": {
-      "url": "https://codesthings.com",
-      "display": "removed"
-    }
+    "linkedin": "https://www.linkedin.com/in/jamescodesthings/"
   },
   "availability": "Immediate",
   "stacks": [
-    "Over the last few years my focus has driven more towards the system being built, rather than a particular set of stacks or languages I work with. I consider myself a polyglot developer, and usually find it easy to hit the ground running on a new platform.",
-    "I have worked with lots of different technologies, but find myself regularly expanding into new territory to deliver a product. Below is a short sample of some of the major technologies I've worked with, but it's becoming impractical to list everything here. If you have a particular tech requirement that's not listed, please reach out; I can let you know my experience level there."
+    "I choose tools for the problem and get productive on new stacks fast. These are the ones I've used most in production."
   ],
   "interests": [
-    "Outside of work, I'm a keen photographer, and I consider myself a Maker nowadays; I have a growing Makerworld presence, and have created projects with little pockets of worldwide appeal, like my <a href=\"https://www.codesthings.com/campsnap\">CampSnap Filter Packs</a>. My interests shift and grow over time, but a few creative passions have stuck with me.",
-    "I enjoy learning new things to stretch my thinking and grow as a person; I was recently diagnosed with ADHD, over the last few years I've been learning about how my brain works, and how to work with it, rather than against it."
+    "Outside work: photography (my <a href=\"https://www.codesthings.com/campsnap\">CampSnap filter packs</a> are used worldwide), 3D-printed parts and FPV drone builds on Makerworld, hardware tinkering, and family."
   ]
 }
