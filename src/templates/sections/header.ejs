@@ -15,8 +15,8 @@
       <div class="cv-header-main">
         <div class="cv-name-row">
           <h1 class="cv-name"><%= sidebar.name %></h1>
-          <a class="download-cta print-hide" href="assets/<%= encodeURIComponent(sidebar.name) %>.pdf" download>
-            <%- include('../icons/download') %> Download CV
+          <a class="download-cta print-hide" href="assets/<%= encodeURIComponent(sidebar.name) %>.pdf">
+            <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span> View CV
           </a>
         </div>
         <p class="cv-title"><%= sidebar.title %></p>

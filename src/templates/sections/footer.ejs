@@ -16,10 +16,12 @@
       aria-hidden="true"
     />
     <div class="footer-links">
-      <a href="./assets/<%= encodeURIComponent(sidebar.name) %>.pdf" class="footer-link" download>Download CV</a>
-      <a href="./assets/<%= encodeURIComponent(sidebar.name) %>-no-cover.pdf" class="footer-link" download
-        >Without cover letter</a
-      >
+      <a href="./assets/<%= encodeURIComponent(sidebar.name) %>.pdf" class="footer-link">
+        <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span> View CV
+      </a>
+      <a href="./assets/<%= encodeURIComponent(sidebar.name) %>-no-cover.pdf" class="footer-link">
+        <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span> View CV without cover letter
+      </a>
     </div>
     <span class="footer-copy">&copy; 2026 James Macmillan</span>
   </div>

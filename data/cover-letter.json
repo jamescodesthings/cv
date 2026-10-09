@@ -2,7 +2,7 @@
   "seeking": true,
   "content": [
     "Hi, I'm James, a Senior Software Engineer based in Birmingham, looking for a remote senior role.",
-    "I have 14 years of commercial experience across web, mobile and cloud. Most recently at Songtradr, I re-engineered a music ingestion platform from 250k to over a million releases a day, delivered sub-second search where queries had taken 30 seconds, and took load off a database costing ~$30k a month. Before that, I took a mobile app that crashed in most sessions to 99.9%+ crash-free, and cut a portal's rebuild time from five minutes to thirty seconds.",
+    "I have 14 years of commercial experience across web, mobile and cloud. Most recently at Songtradr, I re-engineered a music ingestion platform from 250k to over a million releases a day, delivered sub-second search where queries had taken 30 seconds, and took load off a database costing ~$30k a month. Before that, I took a mobile app that crashed in most sessions to 99.9%+ crash-free, and cut a portal's dev build time from five minutes to thirty seconds.",
     "I work best in teams that pair, ship often and choose the simplest thing that works. I ran a series of knowledge-share talks on adopting AI coding tools safely and well, and I like helping the developers around me get better.",
     "Thanks for reading. If that sounds like what your team needs, I'd like to hear from you."
   ],

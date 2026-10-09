@@ -522,6 +522,12 @@ html:not(.dark) .icon-moon {
   font-size: var(--text-body);
 }
 
+.cv-icon {
+  display: inline-flex;
+  vertical-align: -0.15em;
+}
+
+.cv-icon svg,
 .badge-icon-svg,
 .inline-icon {
   width: 1em;
@@ -1711,6 +1717,39 @@ p:has(.published) {
   .display-hide {
     display: none !important;
   }
+}
+
+/* ============================================
+   Light-theme text contrast
+   ============================================ */
+
+/* Amber text on the cream background is about 3:1, under the 4.5:1 needed for small text. In the
+   light theme, links and role summaries switch to ink, with amber kept as the underline, and the
+   small amber labels use the darker amber. */
+html:not(.dark) :is(.prose, .profile-summary, .cv-contact, .experience-highlights, .outside-card) a {
+  color: var(--color-heading);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+html:not(.dark) :is(.prose, .profile-summary, .cv-contact, .experience-highlights, .outside-card) a:hover {
+  color: var(--color-accent-hover);
+}
+
+html:not(.dark) :is(.download-cta, .download-cta:hover) {
+  color: var(--color-heading);
+}
+
+html:not(.dark) .experience-summary {
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+html:not(.dark) :is(.cv-title, .section-label, .experience-number) {
+  color: var(--color-accent-hover);
 }
 
 /* ============================================
