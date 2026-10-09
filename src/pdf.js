@@ -113,6 +113,7 @@ function applyVariant(baseData, variant) {
     ...baseData,
     coverLetter: variant.coverLetter ? { ...baseData.coverLetter, ...variant.coverLetter } : baseData.coverLetter,
     showProjects: variant.showProjects ?? false,
+    showCoverLetter: variant.showCoverLetter ?? false,
   };
 }
 
@@ -122,6 +123,9 @@ async function gotenbergConvert(html, outputPath) {
   formData.append('marginBottom', '0');
   formData.append('marginLeft', '0');
   formData.append('marginRight', '0');
+  // A4, since the CV is aimed at UK employers; Gotenberg defaults to US Letter.
+  formData.append('paperWidth', '8.27');
+  formData.append('paperHeight', '11.7');
   formData.append('printBackground', 'true');
   // The devicon font comes from a CDN; without this the first PDF can print before it loads.
   formData.append('waitForExpression', "document.fonts.status === 'loaded' && document.fonts.check('16px devicon')");
@@ -137,9 +141,23 @@ async function gotenbergConvert(html, outputPath) {
     throw new Error(`PDF conversion failed: ${response.statusText}: ${body}`);
   }
 
-  const pdfBuffer = await response.arrayBuffer();
-  await fsWriteFile(outputPath, Buffer.from(pdfBuffer));
-  debug(`PDF written to ${outputPath}`);
+  const pdfBuffer = Buffer.from(await response.arrayBuffer());
+  await fsWriteFile(outputPath, pdfBuffer);
+  const pages = countPages(pdfBuffer);
+  debug(`PDF written to ${outputPath} (${pages} pages)`);
+  return pages;
+}
+
+// Chromium writes each page as an uncompressed `/Type /Page` dictionary, so counting those is
+// enough to tell how many pages a PDF has without a PDF library.
+function countPages(pdfBuffer) {
+  return pdfBuffer.toString('latin1').match(/\/Type\s*\/Page(?![a-zA-Z])/g)?.length ?? 0;
+}
+
+function checkPageCount(variant, file, pages) {
+  if (variant.maxPages && pages > variant.maxPages) {
+    throw new Error(`${file} has ${pages} pages, over the ${variant.maxPages}-page limit for variant ${variant.id}`);
+  }
 }
 
 async function loadData() {
@@ -177,11 +195,11 @@ for (const variant of variants) {
   html = await inlineAssets(html);
 
   const lightPath = resolve(publicDir, 'assets', `cv.${variant.id}.pdf`);
-  await gotenbergConvert(applyDarkClass(html, false), lightPath);
+  checkPageCount(variant, lightPath, await gotenbergConvert(applyDarkClass(html, false), lightPath));
   await copyFile(lightPath, resolve(pagesDir, 'assets', `cv.${variant.id}.pdf`));
 
   const darkPath = resolve(publicDir, 'assets', `cv.${variant.id}-dark.pdf`);
-  await gotenbergConvert(applyDarkClass(html, true), darkPath);
+  checkPageCount(variant, darkPath, await gotenbergConvert(applyDarkClass(html, true), darkPath));
   await copyFile(darkPath, resolve(pagesDir, 'assets', `cv.${variant.id}-dark.pdf`));
 
   debug(`Variant ${variant.id}: done`);

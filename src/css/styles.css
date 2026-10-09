@@ -330,23 +330,6 @@ html:not(.dark) .icon-moon {
    About / Cover Letter
    ============================================ */
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: var(--space-3xl);
-  align-items: start;
-}
-
-.about-sidebar {
-  position: sticky;
-  top: var(--space-xl);
-}
-
-.avatar {
-  margin-bottom: var(--space-xl);
-  text-align: center;
-}
-
 .avatar-img {
   width: 100%;
   height: auto;
@@ -359,16 +342,6 @@ html:not(.dark) .icon-moon {
 
 .avatar-img:hover {
   border-color: var(--color-accent);
-}
-
-.contact-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-md);
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease;
 }
 
 .label {
@@ -391,42 +364,6 @@ html:not(.dark) .icon-moon {
 .section-label.lg {
   font-size: var(--text-sm);
   letter-spacing: 0.12em;
-}
-
-.contact-list {
-  list-style: none;
-  margin-bottom: var(--space-lg);
-}
-
-.contact-list li {
-  margin-bottom: var(--space-md);
-  font-size: var(--text-small);
-}
-
-.contact-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: var(--text-xs);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  margin-bottom: 2px;
-}
-
-.contact-socials {
-  display: flex;
-  gap: var(--space-md);
-  margin-bottom: var(--space-lg);
-  /* padding-bottom: var(--space-lg); */
-  /* border-bottom: 1px solid var(--color-border); */
-}
-
-.social-link {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .availability {
@@ -634,7 +571,56 @@ html:not(.dark) .icon-moon {
 }
 
 /* ============================================
-   Skills - Bento Grid
+   Header
+   ============================================ */
+
+.cv-header {
+  padding-bottom: var(--space-2xl);
+}
+
+.cv-header-grid {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.cv-header-avatar {
+  width: 96px;
+  flex-shrink: 0;
+}
+
+.cv-name {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-heading);
+}
+
+.cv-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: var(--space-sm);
+}
+
+.cv-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-lg);
+  list-style: none;
+  margin-top: var(--space-md);
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+/* ============================================
+   Skills
    ============================================ */
 
 .skills-meta {
@@ -648,56 +634,47 @@ html:not(.dark) .icon-moon {
   margin-bottom: var(--space-sm);
 }
 
-.bento-grid {
+.skill-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
   margin-bottom: var(--space-4xl);
 }
 
-.bento-badge {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) var(--space-lg);
+.skill-group {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  transition:
-    border-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  transition: border-color 0.2s ease;
 }
 
-.bento-badge:hover {
+.skill-group:hover {
   border-color: var(--color-accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.08);
 }
 
-html:not(.dark) .bento-badge:hover {
-  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.08);
-}
-
-.bento-badge .badge-icon {
+.skill-group-name {
+  font-family: var(--font-heading);
   font-size: var(--text-h2);
-  color: var(--color-text-secondary);
-  transition: color 0.2s ease;
+  font-weight: 600;
+  color: var(--color-heading);
 }
 
-.bento-badge:hover .badge-icon {
-  color: var(--color-accent);
-}
-
-.bento-badge .badge-icon-img {
-  width: 22px;
-  height: 22px;
-}
-
-.badge-label {
+.skill-group-summary {
   font-size: var(--text-small);
-  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.skill-group .tech-badges {
+  margin-bottom: 0;
+}
+
+.badge--core {
   color: var(--color-text);
+  border-color: var(--color-accent);
+  font-weight: 500;
 }
 
 /* ============================================
@@ -1451,15 +1428,6 @@ p:has(.published) {
     padding: 0 var(--space-lg);
   }
 
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-
-  .about-sidebar {
-    position: static;
-  }
-
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -1474,8 +1442,13 @@ p:has(.published) {
     grid-template-columns: 1fr;
   }
 
-  .bento-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  .skill-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-header-grid {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer-inner {
@@ -1486,19 +1459,6 @@ p:has(.published) {
 
   .experience-employer {
     font-size: var(--text-h2);
-  }
-}
-
-@media (max-width: 480px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .bento-badge {
-    padding: var(--space-sm);
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-xs);
   }
 }
 
@@ -1616,12 +1576,12 @@ p:has(.published) {
 
 @media print {
   :root {
-    --text-display: 2rem;
+    --text-display: 1.9rem;
     --text-h1: 1rem;
-    --text-h2: 0.9rem;
-    --text-body: 0.75rem;
-    --text-small: 0.6rem;
-    --text-xs: 0.5rem;
+    --text-h2: 0.85rem;
+    --text-body: 0.8rem;
+    --text-small: 0.75rem;
+    --text-xs: 0.6rem;
   }
 
   .hero {
@@ -1635,23 +1595,28 @@ p:has(.published) {
     padding: var(--space-xl) var(--space-xl);
   }
 
-  .contact-card {
-    border: none;
-    background: none;
-    padding: 0;
-  }
-
-  .about-sidebar {
-    position: static;
-  }
-  .about-grid {
-    grid-template-columns: 160px 1fr;
-  }
-
   .section {
     margin-top: 0;
-    padding-top: var(--space-2xl);
+    padding-top: var(--space-xl);
     padding-bottom: 0;
+  }
+
+  .cv-header {
+    padding-top: 0;
+  }
+
+  .cv-header-grid {
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .cv-header-avatar {
+    width: 72px;
+  }
+
+  .cv-contact {
+    font-size: var(--text-xs);
+    margin-top: var(--space-sm);
   }
 
   .section-title {
@@ -1688,7 +1653,7 @@ p:has(.published) {
 
   .project-card,
   .education-card,
-  .bento-badge {
+  .skill-group {
     box-shadow: none;
     border: none;
     background: none;
@@ -1708,39 +1673,109 @@ p:has(.published) {
   }
 
   .education-card {
-    margin: 0;
+    margin: 0 0 var(--space-sm);
     padding: 0;
+    page-break-inside: avoid;
+  }
+
+  .education-header {
+    margin-bottom: var(--space-xs);
   }
 
   .experience-list {
     display: block;
   }
 
+  /* Entries may split across pages, but never between the header and the first bullets or
+     in the middle of a bullet. Keeping whole entries together left half-empty pages. */
   .experience-entry {
     border: none;
     padding: 0;
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    page-break-inside: auto;
   }
 
   .experience-header {
-    margin-bottom: var(--space-sm);
+    break-inside: avoid;
+  }
+
+  .experience-header,
+  .experience-entry .tech-badges {
+    break-after: avoid;
+  }
+
+  .experience-highlights li {
+    break-inside: avoid;
+  }
+
+  .experience-header {
+    margin-bottom: var(--space-xs);
+  }
+
+  .experience-highlights {
+    margin-top: var(--space-xs);
+  }
+
+  .experience-highlights li {
+    line-height: 1.45;
+    margin-bottom: 2px;
   }
 
   .profile-summary {
-    margin-bottom: var(--space-md);
+    margin-bottom: 0;
+  }
+
+  .profile-summary p {
+    line-height: 1.55;
   }
 
   .skills-meta {
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Cards on the web, labelled rows on paper: name and pills on one line, summary dropped. */
+  .skill-groups {
+    display: block;
     margin-bottom: var(--space-md);
   }
 
-  .bento-grid {
-    gap: var(--space-xs);
-    margin-bottom: var(--space-md);
+  .skill-group {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: 0;
+    margin-bottom: var(--space-xs);
+    page-break-inside: avoid;
+  }
+
+  .skill-group-name {
+    flex: 0 0 7.5rem;
+    font-size: var(--text-small);
+  }
+
+  .skill-group-summary {
+    display: none;
+  }
+
+  .skill-group .tech-badges {
+    margin: 0;
   }
 
   .tech-badges {
-    margin-top: 0.4rem;
-    margin-bottom: 0.4rem;
+    gap: var(--space-xs);
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .badge {
+    padding: 1px var(--space-xs);
+  }
+
+  .education-section {
+    padding-top: var(--space-sm);
+  }
+
+  .interests-section {
+    margin-top: var(--space-md);
   }
 }

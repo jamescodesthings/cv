@@ -2,6 +2,13 @@
   {
     "id": "default",
     "default": true,
-    "showProjects": false
+    "showProjects": false,
+    "maxPages": 2
+  },
+  {
+    "id": "cover",
+    "showCoverLetter": true,
+    "showProjects": false,
+    "maxPages": 3
   }
 ]

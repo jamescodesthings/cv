@@ -91,7 +91,8 @@
       },
       {
         "label": "Capacitor",
-        "icon": "devicon-capacitor-plain"
+        "icon": "/assets/icons/capacitor-logo.png",
+        "iconType": "image"
       }
     ],
     "highlights": [

@@ -1,107 +1,60 @@
 [
   {
-    "slug": "gcp",
-    "name": "GCP",
-    "icon": "devicon-googlecloud-plain",
-    "type": "platform",
-    "layer": "server-side"
+    "name": "Back end & cloud",
+    "summary": "Serverless-first on AWS and GCP, with Docker and Terraform where they fit.",
+    "skills": [
+      { "name": "Node.js", "icon": "devicon-nodejs-plain", "core": true },
+      { "name": ".NET", "icon": "devicon-dotnetcore-plain", "core": true },
+      { "name": "GCP", "icon": "devicon-googlecloud-plain", "core": true },
+      { "name": "AWS", "icon": "devicon-amazonwebservices-plain", "core": true },
+      { "name": "Serverless", "icon": "/assets/icons/sls.svg", "iconType": "image", "core": true },
+      { "name": "Docker", "icon": "devicon-docker-plain" },
+      { "name": "Terraform", "icon": "devicon-terraform-plain" }
+    ]
   },
   {
-    "slug": "aws",
-    "name": "AWS",
-    "icon": "devicon-amazonwebservices-plain",
-    "type": "platform",
-    "layer": "server-side"
+    "name": "Languages",
+    "summary": "TypeScript and C# day to day, with Java, Swift and Objective-C where the platform calls for it.",
+    "skills": [
+      { "name": "TypeScript", "icon": "devicon-typescript-plain", "core": true },
+      { "name": "JavaScript", "icon": "devicon-javascript-plain", "core": true },
+      { "name": "C#", "icon": "devicon-csharp-plain", "core": true },
+      { "name": "SQL" },
+      { "name": "Java", "icon": "devicon-java-plain" },
+      { "name": "Swift", "icon": "devicon-swift-plain" },
+      { "name": "Objective-C", "icon": "devicon-objectivec-plain" }
+    ]
   },
   {
-    "slug": "ios",
-    "name": "iOS",
-    "icon": "devicon-apple-plain",
-    "type": "platform",
-    "layer": "mobile"
+    "name": "Data",
+    "summary": "Relational and document stores, plus search at scale.",
+    "skills": [
+      { "name": "PostgreSQL", "icon": "devicon-postgresql-plain", "core": true },
+      { "name": "SQL Server", "icon": "devicon-microsoftsqlserver-plain" },
+      { "name": "MySQL", "icon": "devicon-mysql-plain" },
+      { "name": "MongoDB / DocumentDB", "icon": "devicon-mongodb-plain", "core": true },
+      { "name": "OpenSearch / Elasticsearch", "icon": "devicon-elasticsearch-plain", "core": true }
+    ]
   },
   {
-    "slug": "android",
-    "name": "Android",
-    "icon": "devicon-android-plain",
-    "type": "platform",
-    "layer": "mobile"
+    "name": "Mobile",
+    "summary": "Native Android and iOS integrations behind cross-platform apps.",
+    "skills": [
+      { "name": "NativeScript", "icon": "/assets/icons/nativescript-logo.png", "iconType": "image", "core": true },
+      { "name": "Capacitor", "icon": "/assets/icons/capacitor-logo.png", "iconType": "image" },
+      { "name": "Android", "icon": "devicon-android-plain", "core": true },
+      { "name": "iOS", "icon": "devicon-apple-plain", "core": true }
+    ]
   },
   {
-    "slug": "c-sharp",
-    "name": "C#",
-    "icon": "devicon-csharp-plain",
-    "type": "language",
-    "layer": "server-side"
-  },
-  {
-    "slug": "java",
-    "name": "Java",
-    "icon": "devicon-java-plain",
-    "type": "language",
-    "layer": "server-side"
-  },
-  {
-    "slug": "node-js",
-    "name": "Node.js",
-    "icon": "devicon-nodejs-plain",
-    "type": "platform",
-    "layer": "server-side"
-  },
-  {
-    "slug": "dotnet-core",
-    "name": ".NET Core",
-    "icon": "devicon-dotnetcore-plain",
-    "type": "platform",
-    "layer": "server-side"
-  },
-  {
-    "slug": "html",
-    "name": "HTML5",
-    "icon": "devicon-html5-plain",
-    "type": "language",
-    "layer": "front-end"
-  },
-  {
-    "slug": "css",
-    "name": "CSS3",
-    "icon": "devicon-css3-plain",
-    "type": "language",
-    "layer": "front-end"
-  },
-  {
-    "slug": "javascript",
-    "name": "JavaScript",
-    "icon": "devicon-javascript-plain",
-    "type": "language",
-    "layer": "full-stack"
-  },
-  {
-    "slug": "typescript",
-    "name": "TypeScript",
-    "icon": "devicon-typescript-plain",
-    "type": "language",
-    "layer": "full-stack"
-  },
-  {
-    "slug": "react-js",
-    "name": "React",
-    "icon": "devicon-react-original",
-    "type": "framework",
-    "layer": "front-end"
-  },
-  {
-    "slug": "angular",
-    "name": "Angular",
-    "icon": "devicon-angularjs-plain",
-    "type": "framework",
-    "layer": "front-end"
-  },
-  {
-    "slug": "tailwind",
-    "name": "Tailwind",
-    "icon": "devicon-tailwindcss-plain",
-    "type": "framework",
-    "layer": "front-end"
+    "name": "Front end",
+    "summary": "Component-driven web apps, from design system to production.",
+    "skills": [
+      { "name": "Angular", "icon": "devicon-angularjs-plain", "core": true },
+      { "name": "React", "icon": "devicon-react-original" },
+      { "name": "HTML5", "icon": "devicon-html5-plain" },
+      { "name": "CSS3", "icon": "devicon-css3-plain" },
+      { "name": "Tailwind", "icon": "devicon-tailwindcss-plain" }
+    ]
   }
 ]

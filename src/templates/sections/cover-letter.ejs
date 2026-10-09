@@ -1,60 +1,12 @@
 <section class="section" data-animate>
   <div class="section-inner">
-    <span class="section-label">01 - Cover</span>
-    <div class="about-grid">
-      <div class="about-sidebar">
-        <div class="avatar">
-          <img
-            src="assets/profile.png"
-            alt="James Macmillan"
-            class="avatar-img"
-            width="120"
-            height="120"
-            loading="lazy"
-          />
-        </div>
-        <div class="contact-card">
-          <h3 class="label lg">Contact</h3>
-          <ul class="contact-list">
-            <li>
-              <span class="contact-label">Email</span>
-              <a href="mailto:<%= sidebar.contact.email %>"><%= sidebar.contact.email %></a>
-            </li>
-            <li>
-              <span class="contact-label">Website</span>
-              <a href="<%= sidebar.contact.website %>"><%= sidebar.contact.website %></a>
-            </li>
-            <li>
-              <span class="contact-label">GitHub</span>
-              <a href="<%= sidebar.contact.github %>">jamescodesthings</a>
-            </li>
-            <li>
-              <span class="contact-label">LinkedIn</span>
-              <a href="<%= sidebar.socials.linkedin %>">linkedin.com/in/jamescodesthings</a>
-            </li>
-            <li>
-              <span class="contact-label">Location</span>
-              <span><%= sidebar.contact.address %></span>
-            </li>
-            <li>
-              <span class="contact-label">Availability</span>
-              <div class="availability">
-                <span class="availability-dot print-hide"></span>
-                <span><%= sidebar.availability %></span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="about-main">
-        <div class="prose">
-          <% const content = coverLetter.seeking ? coverLetter.content : coverLetter.notSeekingContent; %> <%
-          content.forEach(paragraph => { %>
-          <p><%= paragraph %></p>
-          <% }); %>
-          <p class="signature"><%= coverLetter.signature %></p>
-        </div>
-      </div>
+    <span class="section-label">Cover letter</span>
+    <div class="prose">
+      <% const content = coverLetter.seeking ? coverLetter.content : coverLetter.notSeekingContent; %> <%
+      content.forEach(paragraph => { %>
+      <p><%= paragraph %></p>
+      <% }); %>
+      <p class="signature"><%= coverLetter.signature %></p>
     </div>
   </div>
 </section>

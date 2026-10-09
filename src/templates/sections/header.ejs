@@ -1,0 +1,34 @@
+<header class="section cv-header" data-animate>
+  <div class="section-inner">
+    <div class="cv-header-grid">
+      <img
+        src="assets/profile.png"
+        alt="James Macmillan"
+        class="avatar-img cv-header-avatar"
+        width="96"
+        height="96"
+      />
+      <div class="cv-header-main">
+        <h1 class="cv-name"><%= sidebar.name %></h1>
+        <p class="cv-title"><%= sidebar.title %></p>
+        <ul class="cv-contact">
+          <li><a href="mailto:<%= sidebar.contact.email %>"><%= sidebar.contact.email %></a></li>
+          <li><a href="<%= sidebar.contact.website %>">codesthings.com</a></li>
+          <li><a href="<%= sidebar.contact.github %>">github.com/jamescodesthings</a></li>
+          <li><a href="<%= sidebar.socials.linkedin %>">linkedin.com/in/jamescodesthings</a></li>
+          <li><%= sidebar.contact.address %></li>
+          <li class="availability">
+            <span class="availability-dot print-hide"></span>
+            <span>Available: <%= sidebar.availability %></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="profile-summary">
+      <% profile.forEach(paragraph => { %>
+      <p><%= paragraph %></p>
+      <% }); %>
+    </div>
+  </div>
+</header>

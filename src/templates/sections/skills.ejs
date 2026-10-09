@@ -1,6 +1,6 @@
 <section class="section" data-animate>
   <div class="section-inner">
-    <span class="section-label">03 - Skills</span>
+    <span class="section-label">02 - Skills</span>
     <h2 class="section-title">Skills</h2>
 
     <div class="skills-meta">
@@ -9,21 +9,28 @@
       <% }); %>
     </div>
 
-    <div class="bento-grid">
-      <% skills.forEach(skill => { %>
-      <div class="bento-badge">
-        <% if (skill.iconType === 'image') { %>
-        <img src="assets/icons/<%= skill.icon.split('/').pop() %>" alt="<%= skill.name %>" class="badge-icon-img" />
-        <% } else { %>
-        <i class="<%= skill.icon %> badge-icon"></i>
-        <% } %>
-        <span class="badge-label"><%= skill.name %></span>
+    <div class="skill-groups">
+      <% skills.forEach(group => { %>
+      <div class="skill-group">
+        <h3 class="skill-group-name"><%= group.name %></h3>
+        <p class="skill-group-summary"><%= group.summary %></p>
+        <div class="tech-badges">
+          <% group.skills.forEach(skill => { %>
+          <span class="badge<%= skill.core ? ' badge--core' : '' %>">
+            <% if (skill.iconType === 'image') { %>
+            <img src="assets/icons/<%= skill.icon.split('/').pop() %>" alt="" class="badge-icon-img" />
+            <% } else if (skill.icon) { %>
+            <i class="<%= skill.icon %> badge-icon"></i>
+            <% } %> <%= skill.name %>
+          </span>
+          <% }); %>
+        </div>
       </div>
       <% }); %>
     </div>
 
     <div class="education-section">
-      <span class="section-label">04 - Education</span>
+      <span class="section-label">03 - Education</span>
       <h2 class="section-title">Education</h2>
 
       <div class="education-grid">
@@ -47,7 +54,7 @@
     </div>
 
     <div class="interests-section">
-      <span class="section-label">05 - Outside work</span>
+      <span class="section-label">04 - Outside work</span>
       <% sidebar.interests.forEach(paragraph => { %>
       <p><%- paragraph %></p>
       <% }); %>

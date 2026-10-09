@@ -15,6 +15,7 @@ function applyVariant(baseData, variant) {
     ...baseData,
     coverLetter: variant.coverLetter ? { ...baseData.coverLetter, ...variant.coverLetter } : baseData.coverLetter,
     showProjects: variant.showProjects ?? false,
+    showCoverLetter: variant.showCoverLetter ?? false,
   };
 }
 
