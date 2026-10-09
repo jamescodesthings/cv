@@ -12,7 +12,8 @@
     "format": "prettier .",
     "format:check": "npm run format -- --check",
     "format:fix": "npm run format -- --write",
-    "pdf:preview": "node --no-deprecation ./src/preview.js"
+    "pdf:preview": "node --no-deprecation ./src/preview.js",
+    "resources": "node --no-deprecation ./src/resources.js"
   },
   "dependencies": {
     "debug": "^4.4.3",
