@@ -1,0 +1,16 @@
+<div class="outside-section">
+  <span class="section-label">03 - Outside work</span>
+  <h2 class="section-title">Outside work</h2>
+  <p class="outside-intro"><%= sidebar.outside.intro %></p>
+  <div class="outside-grid">
+    <% sidebar.outside.items.forEach(item => { %>
+    <div class="outside-card">
+      <%- include('../icons/' + item.icon) %>
+      <div>
+        <h3 class="outside-title"><%= item.title %></h3>
+        <p><%- item.text %></p>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</div>

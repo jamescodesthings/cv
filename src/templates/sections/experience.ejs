@@ -19,15 +19,7 @@
 
         <% if (job.tech && job.tech.length > 0) { %>
         <div class="tech-badges">
-          <% job.tech.forEach(tech => { %>
-          <span class="badge">
-            <% if (tech.iconType === 'image') { %>
-            <img src="assets/icons/<%= tech.icon.split('/').pop() %>" alt="<%= tech.label %>" class="badge-icon-img" />
-            <% } else { %>
-            <i class="<%= tech.icon %> badge-icon"></i>
-            <% } %> <%= tech.label %>
-          </span>
-          <% }); %>
+          <% job.tech.forEach(item => { %> <%- include('badge', { item }) %> <% }); %>
         </div>
         <% } %> <% if (job.highlights) { %>
         <ul class="experience-highlights">

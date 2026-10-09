@@ -518,12 +518,18 @@ html:not(.dark) .icon-moon {
     color 0.2s ease;
 }
 
-.badge:hover {
-  border-color: var(--color-accent);
-  color: var(--color-text);
+.badge-icon {
+  font-size: var(--text-body);
 }
 
-.badge-icon {
+.badge-icon-svg,
+.inline-icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.badge-icon-svg {
   font-size: var(--text-body);
 }
 
@@ -574,8 +580,30 @@ html:not(.dark) .icon-moon {
    Header
    ============================================ */
 
+.back-nav {
+  background: var(--color-surface);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.back-nav a {
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-nav a:hover {
+  color: var(--color-accent);
+}
+
 .cv-header {
-  padding-bottom: var(--space-2xl);
+  padding-bottom: 0;
+}
+
+.cv-header + .section {
+  padding-top: var(--space-2xl);
 }
 
 .cv-header-grid {
@@ -588,6 +616,46 @@ html:not(.dark) .icon-moon {
 .cv-header-avatar {
   width: 96px;
   flex-shrink: 0;
+  border-color: var(--color-accent);
+}
+
+.cv-name-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm) var(--space-lg);
+}
+
+.download-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.download-cta:hover {
+  background: var(--color-accent-hover);
+  color: var(--color-bg);
+}
+
+.cv-location {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.cv-contact .availability-dot {
+  display: inline-block;
+  margin-right: var(--space-xs);
 }
 
 .cv-name {
@@ -641,7 +709,22 @@ html:not(.dark) .icon-moon {
   margin-bottom: var(--space-4xl);
 }
 
+/* A soft highlight runs round each card's border. Each card starts at a different point and
+   speed, so the grid doesn't read as a row of loading bars. */
+@property --snake-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes snake {
+  to {
+    --snake-angle: 360deg;
+  }
+}
+
 .skill-group {
+  position: relative;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
@@ -649,8 +732,31 @@ html:not(.dark) .icon-moon {
   transition: border-color 0.2s ease;
 }
 
-.skill-group:hover {
-  border-color: var(--color-accent);
+.skill-group::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--snake-angle),
+    transparent 0deg 250deg,
+    color-mix(in srgb, var(--color-accent) 75%, transparent) 330deg,
+    transparent 360deg
+  );
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: snake var(--snake-duration, 8s) linear infinite;
+  animation-delay: var(--snake-delay, 0s);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-group::before {
+    display: none;
+  }
 }
 
 .skill-group-name {
@@ -675,6 +781,59 @@ html:not(.dark) .icon-moon {
   color: var(--color-text);
   border-color: var(--color-accent);
   font-weight: 500;
+}
+
+/* ============================================
+   Outside work
+   ============================================ */
+
+.outside-section {
+  padding-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.outside-intro {
+  font-size: var(--text-body);
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.outside-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.outside-card {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
+}
+
+.card-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.outside-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: var(--space-xs);
+}
+
+.outside-card p {
+  font-size: var(--text-small);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
 
 /* ============================================
@@ -1554,17 +1713,6 @@ p:has(.published) {
   }
 }
 
-.interests-section {
-  margin-top: var(--space-2xl);
-}
-
-.interests-section p {
-  margin-top: var(--space-sm);
-  font-size: var(--text-small);
-  line-height: 1.75;
-  color: var(--color-text-secondary);
-}
-
 /* ============================================
    Print Styles
    ============================================ */
@@ -1579,6 +1727,7 @@ p:has(.published) {
     --text-display: 1.9rem;
     --text-h1: 1rem;
     --text-h2: 0.85rem;
+    --text-h4: 0.8rem;
     --text-body: 0.8rem;
     --text-small: 0.75rem;
     --text-xs: 0.6rem;
@@ -1597,12 +1746,20 @@ p:has(.published) {
 
   .section {
     margin-top: 0;
-    padding-top: var(--space-xl);
+    padding-top: var(--space-md);
     padding-bottom: 0;
+  }
+
+  .section-inner {
+    padding: 0 var(--space-xl);
   }
 
   .cv-header {
     padding-top: 0;
+  }
+
+  .cv-header + .section {
+    padding-top: var(--space-lg);
   }
 
   .cv-header-grid {
@@ -1620,7 +1777,13 @@ p:has(.published) {
   }
 
   .section-title {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
+    break-after: avoid;
+  }
+
+  /* On paper the section title is enough; the numbered label above it costs a line per section. */
+  .section-label:has(+ .section-title) {
+    display: none;
   }
 
   /* Hide interactive and non-CV elements */
@@ -1651,8 +1814,42 @@ p:has(.published) {
     page-break-after: always;
   }
 
+  .skill-group::before {
+    display: none;
+  }
+
+  .back-nav {
+    display: none;
+  }
+
+  .outside-section {
+    padding-top: var(--space-sm);
+    margin-bottom: 0;
+    break-inside: avoid;
+  }
+
+  .outside-intro {
+    margin-bottom: var(--space-sm);
+  }
+
+  .outside-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+
+  .outside-card {
+    padding: 0;
+    gap: var(--space-sm);
+  }
+
+  .card-icon {
+    width: 18px;
+    height: 18px;
+  }
+
   .project-card,
   .education-card,
+  .outside-card,
   .skill-group {
     box-shadow: none;
     border: none;
@@ -1669,7 +1866,16 @@ p:has(.published) {
   }
 
   .education-grid {
-    display: block;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .education-institution {
+    margin-bottom: 0;
+  }
+
+  .qualification {
+    margin-top: 2px;
   }
 
   .education-card {
@@ -1679,20 +1885,23 @@ p:has(.published) {
   }
 
   .education-header {
-    margin-bottom: var(--space-xs);
+    margin-bottom: 0;
   }
 
   .experience-list {
     display: block;
   }
 
-  /* Entries may split across pages, but never between the header and the first bullets or
-     in the middle of a bullet. Keeping whole entries together left half-empty pages. */
+  /* Each role stays on one page. The 2-page guard in src/pdf.js catches content that no longer
+     fits, so the fix is trimming, not letting a role split. */
   .experience-entry {
     border: none;
     padding: 0;
     margin-bottom: var(--space-lg);
-    page-break-inside: auto;
+  }
+
+  .experience-entry:last-child {
+    margin-bottom: 0;
   }
 
   .experience-header {
@@ -1773,9 +1982,6 @@ p:has(.published) {
 
   .education-section {
     padding-top: var(--space-sm);
-  }
-
-  .interests-section {
-    margin-top: var(--space-md);
+    break-inside: avoid;
   }
 }

@@ -108,12 +108,18 @@ function applyDarkClass(html, dark) {
   return html.replace(/(<html[^>]*class="[^"]*)\bdark\b\s*/, '$1');
 }
 
+// "James Macmillan.pdf", "James Macmillan-dark.pdf", "James Macmillan-dark-plain.pdf" and so on.
+function pdfFileName(name, dark, suffix) {
+  return `${[name, dark && 'dark', suffix].filter(Boolean).join('-')}.pdf`;
+}
+
 function applyVariant(baseData, variant) {
   return {
     ...baseData,
     coverLetter: variant.coverLetter ? { ...baseData.coverLetter, ...variant.coverLetter } : baseData.coverLetter,
     showProjects: variant.showProjects ?? false,
     showCoverLetter: variant.showCoverLetter ?? false,
+    hideContact: variant.hideContact ?? false,
   };
 }
 
@@ -194,13 +200,16 @@ for (const variant of variants) {
   let html = await renderTemplate(indexTemplatePath, { ...data, formatDate });
   html = await inlineAssets(html);
 
-  const lightPath = resolve(publicDir, 'assets', `cv.${variant.id}.pdf`);
-  checkPageCount(variant, lightPath, await gotenbergConvert(applyDarkClass(html, false), lightPath));
-  await copyFile(lightPath, resolve(pagesDir, 'assets', `cv.${variant.id}.pdf`));
-
-  const darkPath = resolve(publicDir, 'assets', `cv.${variant.id}-dark.pdf`);
-  checkPageCount(variant, darkPath, await gotenbergConvert(applyDarkClass(html, true), darkPath));
-  await copyFile(darkPath, resolve(pagesDir, 'assets', `cv.${variant.id}-dark.pdf`));
+  for (const dark of [false, true]) {
+    const fileName = pdfFileName(baseData.sidebar.name, dark, variant.suffix);
+    const outputPath = resolve(publicDir, 'assets', fileName);
+    checkPageCount(variant, fileName, await gotenbergConvert(applyDarkClass(html, dark), outputPath));
+    await copyFile(outputPath, resolve(pagesDir, 'assets', fileName));
+    // Links already shared before the PDFs were renamed point at the old file name.
+    if (!dark && variant.legacyFileName) {
+      await copyFile(outputPath, resolve(pagesDir, 'assets', variant.legacyFileName));
+    }
+  }
 
   debug(`Variant ${variant.id}: done`);
 }

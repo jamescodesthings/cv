@@ -7,24 +7,37 @@
     "tech": [
       {
         "label": "GCP",
-        "icon": "devicon-googlecloud-plain"
+        "icon": "devicon-googlecloud-plain",
+        "core": true
       },
       {
         "label": "AWS",
-        "icon": "devicon-amazonwebservices-original"
+        "icon": "devicon-amazonwebservices-plain",
+        "core": true
       },
       {
         "label": "Node.js",
-        "icon": "devicon-nodejs-plain"
+        "icon": "devicon-nodejs-plain",
+        "core": true
       },
       {
         "label": ".NET",
-        "icon": "devicon-dotnetcore-plain"
+        "icon": "devicon-dotnetcore-plain",
+        "core": true
+      },
+      {
+        "label": "Terraform",
+        "icon": "devicon-terraform-plain",
+        "core": true
+      },
+      {
+        "label": "JavaScript",
+        "icon": "devicon-javascript-plain"
       }
     ],
     "highlights": [
       "Re-engineered the release ingestion pipeline, lifting throughput from ~250k to 1M+ releases a day and removing its Kafka dependency when the provider shut down and every alternative cost 2x or more.",
-      "Delivered a search service returning high-quality results in under a second, replacing a first-generation implementation that took 30s+ per query.",
+      "Rescued and rewrote search on OpenSearch after a stalled rebuild, pinning down the real requirements and replacing a slow Solr service with one that returns high-quality results in under a second, down from 30s+.",
       "Built, migrated onto and ran a master metadata store, from tooling and feature work to ongoing maintenance. It took load off a legacy database costing ~$30k a month and rising, and now backs the platform's APIs.",
       "Ran 5–7 knowledge-share talks on adopting AI coding tools (risks, mitigations, tooling and good practice), starting with a group of ~10 peers and widening out across engineering.",
       "Contributed to security, platform design, support and data analysis across the wider engineering organisation.",
@@ -38,31 +51,39 @@
     "summary": "Robust mobile and web development with the users' needs at heart",
     "tech": [
       {
-        "label": "Android",
-        "icon": "devicon-android-plain"
+        "label": "iOS",
+        "icon": "devicon-apple-plain",
+        "core": true
       },
       {
-        "label": "iOS",
-        "icon": "devicon-apple-plain"
+        "label": "Android",
+        "icon": "devicon-android-plain",
+        "core": true
+      },
+      {
+        "label": "NativeScript",
+        "svg": "nativescript",
+        "core": true
+      },
+      {
+        "label": "Angular",
+        "icon": "devicon-angularjs-plain",
+        "core": true
       },
       {
         "label": "TypeScript",
         "icon": "devicon-typescript-plain"
       },
       {
-        "label": "Angular",
-        "icon": "devicon-angularjs-plain"
-      },
-      {
         "label": ".NET",
-        "icon": "devicon-dot-net-plain"
+        "icon": "devicon-dotnetcore-plain"
       }
     ],
     "highlights": [
-      "Revived an outsourced NativeScript and Angular app that crashed in 80–90% of sessions, taking it to 99.9%+ crash-free and redesigning it end to end with drivers and stakeholders.",
+      "Revived an outsourced NativeScript and Angular app that crashed in 80–90% of sessions, taking it to 99.9%+ crash-free and redesigning it end to end with the contractors, third parties and end users who relied on it.",
       "Wrote native Android and iOS integrations for GPS, camera, background services and permissions in Java, Swift and Objective-C, published as <a href=\"https://www.npmjs.com/~jamescodesthings\">open source NativeScript plugins</a>.",
-      "Upgraded NativeScript to v7 and Angular to v12 ahead of an iOS WebView deprecation deadline.",
-      "Split the customer portal into an Angular SPA and a .NET API, fixed a vendor bundle that loaded dependencies twice and added lazy-loaded routes, cutting dev rebuilds from 5+ minutes to 30 seconds.",
+      "Kept the apps in step with mobile platform standards, staying ahead of major ecosystem changes such as Apple's WebView deprecation.",
+      "Split the customer portal into an Angular SPA and a .NET API, fixed a vendor bundle that loaded dependencies twice and added lazy-loaded routes, cutting dev builds from 5+ minutes to 30 seconds.",
       "Hired and mentored new engineers, getting them shipping features quickly."
     ]
   },
@@ -74,32 +95,33 @@
     "tech": [
       {
         "label": "Node.js",
-        "icon": "devicon-nodejs-plain"
+        "icon": "devicon-nodejs-plain",
+        "core": true
       },
       {
         "label": "AWS",
-        "icon": "devicon-amazonwebservices-plain"
+        "icon": "devicon-amazonwebservices-plain",
+        "core": true
       },
       {
         "label": "Serverless",
-        "icon": "/assets/icons/sls.svg",
-        "iconType": "image"
+        "svg": "serverless",
+        "core": true
       },
       {
         "label": "Angular",
-        "icon": "devicon-angularjs-plain"
+        "icon": "devicon-angularjs-plain",
+        "core": true
       },
       {
         "label": "Capacitor",
-        "icon": "/assets/icons/capacitor-logo.png",
-        "iconType": "image"
+        "icon": "devicon-capacitor-plain"
       }
     ],
     "highlights": [
       "Brought the subscription learning platform to mobile from a standing start: CI/CD, infrastructure, brand implementation, and the processes and guidelines to develop the web platform and app side by side.",
       "Got the app through Apple review and kept it passing, with testing and monitoring covering changes shipped to web and app at the same time. The app reached ~3k installs.",
       "Migrated the backend to serverless microservices on AWS in the early days of serverless, growing to ~250 Lambda functions in production.",
-      "Owned payment integration and the front-end build toolchain.",
       "Mentored developers joining software engineering from other careers, and raised standards with a large offshore team."
     ]
   },
@@ -111,26 +133,43 @@
     "tech": [
       {
         "label": "Java",
-        "icon": "devicon-java-plain"
+        "icon": "devicon-java-plain",
+        "core": true
       },
       {
         "label": ".NET",
-        "icon": "devicon-dot-net-plain"
+        "icon": "devicon-dotnetcore-plain",
+        "core": true
+      },
+      {
+        "label": "Node.js",
+        "icon": "devicon-nodejs-plain",
+        "core": true
+      },
+      {
+        "label": "Angular",
+        "icon": "devicon-angularjs-plain",
+        "core": true
       },
       {
         "label": "TypeScript",
-        "icon": "devicon-typescript-plain"
+        "icon": "devicon-typescript-plain",
+        "core": true
       },
       {
-        "label": "CSS",
-        "icon": "devicon-css3-plain"
+        "label": "Android",
+        "icon": "devicon-android-plain"
+      },
+      {
+        "label": "iOS",
+        "icon": "devicon-apple-plain"
       }
     ],
     "highlights": [
       "Built and supported a large estate of customer-facing and internal web apps in Java (Spring, Play) and C# .NET on SQL Server.",
-      "Developed the card payment applications, including PCI DSS compliance and 3-D Secure implementation.",
+      "Integrated card payments into customer-facing and internal applications across the estate.",
       "Front-end lead on the Customer Portal redesign.",
-      "Moved into mobile with the company, building cross-platform and native Android and iOS apps and setting up early Mobile Device Management."
+      "Part of the company's early mobile development: built cross-platform and native Android and iOS apps, and set up Mobile Device Management and the infrastructure behind it."
     ]
   }
 ]

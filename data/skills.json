@@ -1,60 +1,73 @@
 [
   {
     "name": "Back end & cloud",
-    "summary": "Serverless-first on AWS and GCP, with Docker and Terraform where they fit.",
+    "summary": "Serverless-first on AWS and GCP, with infrastructure as code from day one.",
     "skills": [
       { "name": "Node.js", "icon": "devicon-nodejs-plain", "core": true },
       { "name": ".NET", "icon": "devicon-dotnetcore-plain", "core": true },
       { "name": "GCP", "icon": "devicon-googlecloud-plain", "core": true },
       { "name": "AWS", "icon": "devicon-amazonwebservices-plain", "core": true },
-      { "name": "Serverless", "icon": "/assets/icons/sls.svg", "iconType": "image", "core": true },
+      { "name": "Terraform", "icon": "devicon-terraform-plain", "core": true },
       { "name": "Docker", "icon": "devicon-docker-plain" },
-      { "name": "Terraform", "icon": "devicon-terraform-plain" }
+      { "name": "Serverless", "svg": "serverless" }
     ]
   },
   {
     "name": "Languages",
-    "summary": "TypeScript and C# day to day, with Java, Swift and Objective-C where the platform calls for it.",
+    "summary": "JavaScript, TypeScript and C# day to day, with Java, Python and Lua where the job calls for them.",
     "skills": [
-      { "name": "TypeScript", "icon": "devicon-typescript-plain", "core": true },
       { "name": "JavaScript", "icon": "devicon-javascript-plain", "core": true },
+      { "name": "TypeScript", "icon": "devicon-typescript-plain", "core": true },
       { "name": "C#", "icon": "devicon-csharp-plain", "core": true },
-      { "name": "SQL" },
+      { "name": "SQL", "svg": "database" },
       { "name": "Java", "icon": "devicon-java-plain" },
-      { "name": "Swift", "icon": "devicon-swift-plain" },
-      { "name": "Objective-C", "icon": "devicon-objectivec-plain" }
+      { "name": "Python", "icon": "devicon-python-plain" },
+      { "name": "Lua", "icon": "devicon-lua-plain" }
     ]
   },
   {
     "name": "Data",
     "summary": "Relational and document stores, plus search at scale.",
     "skills": [
-      { "name": "PostgreSQL", "icon": "devicon-postgresql-plain", "core": true },
-      { "name": "SQL Server", "icon": "devicon-microsoftsqlserver-plain" },
+      { "name": "SQL Server", "icon": "devicon-microsoftsqlserver-plain", "core": true },
+      { "name": "Elastic", "icon": "devicon-elasticsearch-plain", "core": true },
+      { "name": "PostgreSQL", "icon": "devicon-postgresql-plain" },
       { "name": "MySQL", "icon": "devicon-mysql-plain" },
-      { "name": "MongoDB / DocumentDB", "icon": "devicon-mongodb-plain", "core": true },
-      { "name": "OpenSearch / Elasticsearch", "icon": "devicon-elasticsearch-plain", "core": true }
+      { "name": "MongoDB", "icon": "devicon-mongodb-plain" }
     ]
   },
   {
     "name": "Mobile",
     "summary": "Native Android and iOS integrations behind cross-platform apps.",
     "skills": [
-      { "name": "NativeScript", "icon": "/assets/icons/nativescript-logo.png", "iconType": "image", "core": true },
-      { "name": "Capacitor", "icon": "/assets/icons/capacitor-logo.png", "iconType": "image" },
+      { "name": "iOS", "icon": "devicon-apple-plain", "core": true },
       { "name": "Android", "icon": "devicon-android-plain", "core": true },
-      { "name": "iOS", "icon": "devicon-apple-plain", "core": true }
+      { "name": "Ionic", "icon": "devicon-ionic-original", "core": true },
+      { "name": "Capacitor", "icon": "devicon-capacitor-plain" },
+      { "name": "NativeScript", "svg": "nativescript" }
     ]
   },
   {
     "name": "Front end",
     "summary": "Component-driven web apps, from design system to production.",
     "skills": [
+      { "name": "React", "icon": "devicon-react-original", "core": true },
       { "name": "Angular", "icon": "devicon-angularjs-plain", "core": true },
-      { "name": "React", "icon": "devicon-react-original" },
+      { "name": "Tailwind", "icon": "devicon-tailwindcss-plain", "core": true },
+      { "name": "StencilJS", "icon": "devicon-stenciljs-plain" },
       { "name": "HTML5", "icon": "devicon-html5-plain" },
-      { "name": "CSS3", "icon": "devicon-css3-plain" },
-      { "name": "Tailwind", "icon": "devicon-tailwindcss-plain" }
+      { "name": "CSS3", "icon": "devicon-css3-plain" }
+    ]
+  },
+  {
+    "name": "CI & build",
+    "summary": "Pipelines that build, test and ship on every push.",
+    "skills": [
+      { "name": "GitHub Actions", "icon": "devicon-githubactions-plain", "core": true },
+      { "name": "TeamCity", "svg": "teamcity" },
+      { "name": "Make", "svg": "make" },
+      { "name": "Ant", "svg": "ant" },
+      { "name": "Bash", "icon": "devicon-bash-plain" }
     ]
   }
 ]

@@ -1,3 +1,7 @@
+<nav class="back-nav print-hide">
+  <a href="/">&larr; Back to codesthings.com</a>
+</nav>
+
 <header class="section cv-header" data-animate>
   <div class="section-inner">
     <div class="cv-header-grid">
@@ -9,17 +13,26 @@
         height="96"
       />
       <div class="cv-header-main">
-        <h1 class="cv-name"><%= sidebar.name %></h1>
+        <div class="cv-name-row">
+          <h1 class="cv-name"><%= sidebar.name %></h1>
+          <a class="download-cta print-hide" href="assets/<%= encodeURIComponent(sidebar.name) %>.pdf" download>
+            <%- include('../icons/download') %> Download CV
+          </a>
+        </div>
         <p class="cv-title"><%= sidebar.title %></p>
         <ul class="cv-contact">
+          <% if (!hideContact) { %>
           <li><a href="mailto:<%= sidebar.contact.email %>"><%= sidebar.contact.email %></a></li>
+          <% } %>
           <li><a href="<%= sidebar.contact.website %>">codesthings.com</a></li>
+          <% if (!hideContact) { %>
           <li><a href="<%= sidebar.contact.github %>">github.com/jamescodesthings</a></li>
           <li><a href="<%= sidebar.socials.linkedin %>">linkedin.com/in/jamescodesthings</a></li>
-          <li><%= sidebar.contact.address %></li>
-          <li class="availability">
+          <% } %>
+          <li class="cv-location"><%- include('../icons/pin') %> <%= sidebar.contact.address %></li>
+          <li>
             <span class="availability-dot print-hide"></span>
-            <span>Available: <%= sidebar.availability %></span>
+            Availability: <%= sidebar.availability %>
           </li>
         </ul>
       </div>

@@ -2,13 +2,22 @@
   {
     "id": "default",
     "default": true,
+    "showCoverLetter": true,
+    "showProjects": false,
+    "maxPages": 3,
+    "legacyFileName": "cv.default.pdf"
+  },
+  {
+    "id": "no-cover",
+    "suffix": "no-cover",
     "showProjects": false,
     "maxPages": 2
   },
   {
-    "id": "cover",
-    "showCoverLetter": true,
+    "id": "plain",
+    "suffix": "plain",
+    "hideContact": true,
     "showProjects": false,
-    "maxPages": 3
+    "maxPages": 2
   }
 ]

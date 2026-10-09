@@ -15,7 +15,24 @@
   "stacks": [
     "I choose tools for the problem and get productive on new stacks fast. These are the ones I've used most in production."
   ],
-  "interests": [
-    "Photography (my <a href=\"https://www.codesthings.com/campsnap\">CampSnap filter packs</a> are used worldwide), designing 3D-printed parts on <a href=\"https://makerworld.com/en/@jamescodesthing\">MakerWorld</a> (800+ downloads, including a parametric LED mount that fits kits other designs couldn't), FPV drones, hardware tinkering, and family."
-  ]
+  "outside": {
+    "intro": "The same habit outside work: find a gap, build the thing, and put it in front of real users.",
+    "items": [
+      {
+        "icon": "camera",
+        "title": "Photography",
+        "text": "Designed the <a href=\"https://www.codesthings.com/campsnap\">CampSnap Pro filter packs</a>, free retro film looks <a href=\"https://www.instagram.com/p/DPkRsDSCAz8/\">used by photographers worldwide</a>."
+      },
+      {
+        "icon": "cube",
+        "title": "3D design & FPV",
+        "text": "800+ downloads on <a href=\"https://makerworld.com/en/@jamescodesthing\">MakerWorld</a>, mostly FPV drone parts like the <a href=\"https://makerworld.com/en/models/1244940-the-dome-air65-air75-canopy-mk-2\">Dome whoop canopy</a>, rated 4.9 from 43 reviews."
+      },
+      {
+        "icon": "chip",
+        "title": "Hardware tinkering",
+        "text": "Handheld Linux and Pico-8 builds, keyboard firmware, and mods for my own FPV kit."
+      }
+    ]
+  }
 }

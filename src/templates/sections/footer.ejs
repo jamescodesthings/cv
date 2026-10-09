@@ -16,8 +16,10 @@
       aria-hidden="true"
     />
     <div class="footer-links">
-      <a href="./assets/cv.default.pdf" class="footer-link" download>Download CV</a>
-      <a href="./assets/cv.cover.pdf" class="footer-link" download>With cover letter</a>
+      <a href="./assets/<%= encodeURIComponent(sidebar.name) %>.pdf" class="footer-link" download>Download CV</a>
+      <a href="./assets/<%= encodeURIComponent(sidebar.name) %>-no-cover.pdf" class="footer-link" download
+        >Without cover letter</a
+      >
     </div>
     <span class="footer-copy">&copy; 2026 James Macmillan</span>
   </div>

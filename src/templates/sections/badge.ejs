@@ -1,0 +1,4 @@
+<span class="badge<%= item.core ? ' badge--core' : '' %>">
+  <% if (item.svg) { %><%- include('../icons/' + item.svg) %><% } else if (item.icon) { %><i class="<%= item.icon %> badge-icon"></i><% } %>
+  <%= item.label ?? item.name %>
+</span>
