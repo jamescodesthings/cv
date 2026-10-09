@@ -25,3 +25,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./pages
           publish_branch: pages
+          # Keep a single commit on the pages branch so old builds (and the PDFs in them) don't linger.
+          force_orphan: true
