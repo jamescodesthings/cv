@@ -14,7 +14,7 @@
   },
   {
     "name": "Languages",
-    "summary": "JavaScript, TypeScript and C# day to day, with Java, Python and Lua where the job calls for them.",
+    "summary": "JavaScript, TypeScript and C# day to day, with Java, Python, Lua and others where the job calls for them.",
     "skills": [
       { "name": "JavaScript", "icon": "devicon-javascript-plain", "core": true },
       { "name": "TypeScript", "icon": "devicon-typescript-plain", "core": true },
@@ -67,7 +67,7 @@
       { "name": "TeamCity", "svg": "teamcity" },
       { "name": "Make", "svg": "make" },
       { "name": "Ant", "svg": "ant" },
-      { "name": "Bash", "icon": "devicon-bash-plain" }
+      { "name": "Shell (zsh, Bash)", "svg": "terminal" }
     ]
   }
 ]

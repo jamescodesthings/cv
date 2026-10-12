@@ -249,8 +249,7 @@ html:not(.dark) .hero::before {
   cursor: pointer;
   transition:
     background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
+    border-color 0.2s ease;
   color: var(--color-text);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -259,7 +258,11 @@ html:not(.dark) .hero::before {
 .theme-toggle:hover {
   background: var(--color-surface-raised);
   border-color: var(--color-accent);
-  transform: scale(1.05);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .toggle-icon {
@@ -337,11 +340,6 @@ html:not(.dark) .icon-moon {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-border);
-  transition: border-color 0.3s ease;
-}
-
-.avatar-img:hover {
-  border-color: var(--color-accent);
 }
 
 .label {
@@ -619,10 +617,29 @@ html:not(.dark) .icon-moon {
   margin-bottom: var(--space-2xl);
 }
 
+/* The glow sets below the photo and rises back over it, dimmer low and brighter high. */
+@keyframes avatar-sun {
+  0%,
+  100% {
+    box-shadow: 0 -8px 22px -6px color-mix(in srgb, var(--color-accent) 38%, transparent);
+  }
+  50% {
+    box-shadow: 0 8px 22px -6px color-mix(in srgb, var(--color-accent) 12%, transparent);
+  }
+}
+
 .cv-header-avatar {
   width: 96px;
   flex-shrink: 0;
   border-color: var(--color-accent);
+  animation: avatar-sun 22s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-header-avatar {
+    animation: none;
+    box-shadow: 0 0 22px -6px color-mix(in srgb, var(--color-accent) 25%, transparent);
+  }
 }
 
 .cv-name-row {
@@ -632,28 +649,100 @@ html:not(.dark) .icon-moon {
   gap: var(--space-sm) var(--space-lg);
 }
 
+/* Buttons sit on the card surface. A faint band of amber light drifts down and back up inside,
+   like a mirror tilting in the sun; on hover or focus it moves faster and the border warms. The
+   two bands cross-fade so the change of speed never jumps. */
+@keyframes mirror {
+  from {
+    background-position: 0 100%;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
 .download-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
   padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
-  background: var(--color-accent);
-  color: var(--color-bg);
+  background: var(--color-surface);
+  color: var(--color-heading);
   font-family: var(--font-mono);
   font-size: var(--text-small);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
-.download-cta:hover {
-  background: var(--color-accent-hover);
-  color: var(--color-bg);
+.download-cta::before,
+.download-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+      180deg,
+      transparent 30%,
+      color-mix(in srgb, var(--color-accent) 16%, transparent) 50%,
+      transparent 70%
+    )
+    0 100% / 100% 300% no-repeat;
+  animation: mirror 3s ease-in-out infinite alternate;
+  transition: opacity 0.4s ease;
 }
 
-.cv-location {
+.download-cta::after {
+  opacity: 0;
+  animation-duration: 0.75s;
+}
+
+.download-cta:is(:hover, :focus-visible) {
+  color: var(--color-heading);
+  border-color: var(--color-accent);
+}
+
+.download-cta:is(:hover, :focus-visible)::before {
+  opacity: 0;
+}
+
+.download-cta:is(:hover, :focus-visible)::after {
+  opacity: 1;
+}
+
+.download-cta:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.download-cta .download-arrow {
+  transition: transform 0.2s ease;
+}
+
+/* SVG user units: 3 of the icon's 24 come to about 2px at the button's text size. */
+.download-cta:is(:hover, :focus-visible) .download-arrow {
+  transform: translateY(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-cta::before,
+  .download-cta::after {
+    display: none;
+  }
+
+  .download-cta .download-arrow {
+    transition: none;
+  }
+}
+
+.cv-contact-item {
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
@@ -729,16 +818,20 @@ html:not(.dark) .icon-moon {
   }
 }
 
-.skill-group {
+/* Skill and education cards share one look. They are not links, so nothing changes on hover. */
+.skill-group,
+.education-card {
   position: relative;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-lg);
   padding: var(--space-xl);
-  transition: border-color 0.2s ease;
 }
 
-.skill-group::before {
+/* Most of the border is lit, fading up from the tail to the brightest point at the head, with a
+   short dark side trailing it. One turn takes 28-40s. */
+.skill-group::before,
+.education-card::before {
   content: '';
   position: absolute;
   inset: -1px;
@@ -746,21 +839,24 @@ html:not(.dark) .icon-moon {
   border-radius: inherit;
   background: conic-gradient(
     from var(--snake-angle),
-    transparent 0deg 250deg,
-    color-mix(in srgb, var(--color-accent) 75%, transparent) 330deg,
+    transparent 0deg 95deg,
+    color-mix(in srgb, var(--color-accent) 12%, transparent) 160deg,
+    color-mix(in srgb, var(--color-accent) 35%, transparent) 260deg,
+    color-mix(in srgb, var(--color-accent) 75%, transparent) 335deg,
     transparent 360deg
   );
   mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   mask-composite: exclude;
-  animation: snake var(--snake-duration, 8s) linear infinite;
+  animation: snake var(--snake-duration, 32s) linear infinite;
   animation-delay: var(--snake-delay, 0s);
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skill-group::before {
+  .skill-group::before,
+  .education-card::before {
     display: none;
   }
 }
@@ -854,18 +950,6 @@ html:not(.dark) .icon-moon {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-lg);
-}
-
-.education-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-lg);
-  padding: var(--space-xl);
-  transition: border-color 0.2s ease;
-}
-
-.education-card:hover {
-  border-color: var(--color-accent);
 }
 
 .education-header {
@@ -1248,9 +1332,20 @@ html:not(.dark) .icon-moon {
   letter-spacing: 0.03em;
 }
 
-.footer-links {
+.footer-cv {
   display: flex;
-  gap: var(--space-lg);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0 0.6em;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.footer-cv .cv-icon {
+  margin-right: 0.4em;
 }
 
 .footer-link {
@@ -1739,10 +1834,6 @@ html:not(.dark) :is(.prose, .profile-summary, .cv-contact, .experience-highlight
   color: var(--color-accent-hover);
 }
 
-html:not(.dark) :is(.download-cta, .download-cta:hover) {
-  color: var(--color-heading);
-}
-
 html:not(.dark) .experience-summary {
   color: var(--color-heading);
   font-weight: 600;
@@ -1808,6 +1899,8 @@ html:not(.dark) :is(.cv-title, .section-label, .experience-number) {
 
   .cv-header-avatar {
     width: 72px;
+    animation: none;
+    box-shadow: none;
   }
 
   .cv-contact {
@@ -1853,7 +1946,8 @@ html:not(.dark) :is(.cv-title, .section-label, .experience-number) {
     page-break-after: always;
   }
 
-  .skill-group::before {
+  .skill-group::before,
+  .education-card::before {
     display: none;
   }
 

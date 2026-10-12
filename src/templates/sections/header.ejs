@@ -15,21 +15,27 @@
       <div class="cv-header-main">
         <div class="cv-name-row">
           <h1 class="cv-name"><%= sidebar.name %></h1>
-          <a class="download-cta print-hide" href="assets/<%= encodeURIComponent(sidebar.name) %>.pdf">
-            <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span> View CV
+          <a class="download-cta print-hide" href="assets/<%= encodeURIComponent(sidebar.name) %>.pdf" download>
+            <span class="cv-icon"><%- include('../../assets/svg/download.svg') %></span> Download CV
           </a>
         </div>
         <p class="cv-title"><%= sidebar.title %></p>
         <ul class="cv-contact">
           <% if (!hideContact) { %>
-          <li><a href="mailto:<%= sidebar.contact.email %>"><%= sidebar.contact.email %></a></li>
+          <li class="cv-contact-item">
+            <%- include('../icons/email') %><a href="mailto:<%= sidebar.contact.email %>"><%= sidebar.contact.email %></a>
+          </li>
           <% } %>
-          <li><a href="<%= sidebar.contact.website %>">codesthings.com</a></li>
+          <li class="cv-contact-item"><%- include('../icons/web') %><a href="<%= sidebar.contact.website %>">codesthings.com</a></li>
           <% if (!hideContact) { %>
-          <li><a href="<%= sidebar.contact.github %>">github.com/jamescodesthings</a></li>
-          <li><a href="<%= sidebar.socials.linkedin %>">linkedin.com/in/jamescodesthings</a></li>
+          <li class="cv-contact-item">
+            <%- include('../icons/github') %><a href="<%= sidebar.contact.github %>">github.com/jamescodesthings</a>
+          </li>
+          <li class="cv-contact-item">
+            <%- include('../icons/linkedin') %><a href="<%= sidebar.socials.linkedin %>">linkedin.com/in/jamescodesthings</a>
+          </li>
           <% } %>
-          <li class="cv-location"><%- include('../icons/pin') %> <%= sidebar.contact.address %></li>
+          <li class="cv-contact-item"><%- include('../icons/pin') %> <%= sidebar.contact.address %></li>
           <li>
             <span class="availability-dot print-hide"></span>
             Availability: <%= sidebar.availability %>

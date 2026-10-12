@@ -36,8 +36,8 @@
       }
     ],
     "highlights": [
-      "Re-engineered the release ingestion pipeline, lifting throughput from ~250k to 1M+ releases a day and removing its Kafka dependency when the provider shut down and every alternative cost 2x or more.",
-      "Rescued and rewrote search on OpenSearch after a stalled rebuild, pinning down the real requirements and replacing a slow Solr service with one that returns high-quality results in under a second, down from 30s+.",
+      "Re-engineered the release ingestion pipeline, lifting throughput from ~250k to 1M+ releases a day and moving away from its Kafka dependency when the provider shut down and every alternative cost 2x or more.",
+      "Rescued and rewrote search on OpenSearch after a stalled rebuild, pinning down the real requirements to replace a legacy Solr service with one that returns high-quality results in under a second, down from 30s+.",
       "Built, migrated onto and ran a master metadata store, from tooling and feature work to ongoing maintenance. It took load off a legacy database costing ~$30k a month and rising, and now backs the platform's APIs.",
       "Ran 5–7 knowledge-share talks on adopting AI coding tools (risks, mitigations, tooling and good practice), starting with a group of ~10 peers and widening out across engineering.",
       "Contributed to security, platform design, support and data analysis across the wider engineering organisation.",

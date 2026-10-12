@@ -15,14 +15,18 @@
       loading="lazy"
       aria-hidden="true"
     />
-    <div class="footer-links">
+    <p class="footer-cv">
       <a href="./assets/<%= encodeURIComponent(sidebar.name) %>.pdf" class="footer-link">
-        <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span> View CV
+        <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span>View CV
       </a>
-      <a href="./assets/<%= encodeURIComponent(sidebar.name) %>-no-cover.pdf" class="footer-link">
-        <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span> View CV without cover letter
-      </a>
-    </div>
+      <span class="footer-sep" aria-hidden="true">&middot;</span>
+      <a
+        href="./assets/<%= encodeURIComponent(sidebar.name) %>-no-cover.pdf"
+        class="footer-link"
+        aria-label="View CV without cover letter"
+        >without cover letter</a
+      >
+    </p>
     <span class="footer-copy">&copy; 2026 James Macmillan</span>
   </div>
 </footer>
