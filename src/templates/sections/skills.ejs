@@ -10,8 +10,8 @@
     </div>
 
     <div class="skill-groups">
-      <% skills.forEach((group, index) => { %>
-      <div class="skill-group" style="--snake-delay: -<%= ((index * 11.6) % 32).toFixed(1) %>s; --snake-duration: <%= 28 + (index % 3) * 6 %>s">
+      <% skills.forEach(group => { %>
+      <div class="skill-group">
         <h3 class="skill-group-name"><%= group.name %></h3>
         <p class="skill-group-summary"><%= group.summary %></p>
         <div class="tech-badges">
@@ -28,8 +28,8 @@
       <h2 class="section-title">Education</h2>
 
       <div class="education-grid">
-        <% education.forEach((entry, index) => { const n = skills.length + index; %>
-        <div class="education-card" style="--snake-delay: -<%= ((n * 11.6) % 32).toFixed(1) %>s; --snake-duration: <%= 28 + (n % 3) * 6 %>s">
+        <% education.forEach(entry => { %>
+        <div class="education-card">
           <div class="education-header">
             <h3 class="education-institution"><%= entry.institution %></h3>
             <span class="education-dates"> <%= formatDate(entry.from) %> - <%= formatDate(entry.to) %> </span>

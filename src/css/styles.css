@@ -54,6 +54,14 @@
   --max-width: 1100px;
   --border-radius: 8px;
   --border-radius-lg: 16px;
+
+  /* Motion. Everything that loops is the same sun crossing the sky: one day takes --day, or
+     --day-hover on the button under the pointer. --dusk is the theme change and drawn rules. */
+  --day: 16s;
+  --day-hover: 6s;
+  --dusk: 0.9s;
+  --ease-sun: cubic-bezier(0.37, 0, 0.63, 1);
+  --ease-dawn: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Light theme */
@@ -137,9 +145,14 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* The page fades between themes at dusk pace, but only after the visitor toggles it, so the first
+   paint never animates. */
+html.theme-motion body {
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    background-color var(--dusk) var(--ease-sun),
+    color var(--dusk) var(--ease-sun);
 }
 
 a {
@@ -161,17 +174,16 @@ img {
    Scroll-Triggered Animations
    ============================================ */
 
-[data-animate] {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
+/* Dawn: each section fades up from nothing the first time it scrolls into view. Sections are only
+   hidden when theme.js is running to show them again, and never under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-animate] {
+    transition: opacity 1.1s var(--ease-sun);
+  }
 
-[data-animate].is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  .js [data-animate]:not(.is-visible) {
+    opacity: 0;
+  }
 }
 
 /* ============================================
@@ -246,6 +258,8 @@ html:not(.dark) .hero::before {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  padding: 0;
   cursor: pointer;
   transition:
     background 0.2s ease,
@@ -265,26 +279,27 @@ html:not(.dark) .hero::before {
   outline-offset: 3px;
 }
 
-.toggle-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Sun and moon ride one orbit pivoting below the button. The sun is up in the light theme; going
+   dark turns the orbit half a circle, so the sun sets and the moon rises in its place. */
+.toggle-orbit,
+.toggle-orbit > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform-origin: 50% 160%;
 }
 
-.dark .icon-sun {
-  display: block;
+.toggle-orbit .orbit-moon {
+  transform: rotate(180deg);
 }
 
-.dark .icon-moon {
-  display: none;
+.dark .toggle-orbit {
+  transform: rotate(-180deg);
 }
 
-html:not(.dark) .icon-sun {
-  display: none;
-}
-
-html:not(.dark) .icon-moon {
-  display: block;
+.theme-motion .toggle-orbit {
+  transition: transform var(--dusk) var(--ease-sun);
 }
 
 /* Scroll hint */
@@ -318,6 +333,25 @@ html:not(.dark) .icon-moon {
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: var(--space-sm);
+}
+
+/* Sunrise rule: a short amber line draws in before the label the first time it scrolls into view. */
+.section-label::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 1px;
+  margin-right: 0;
+  background: var(--color-accent);
+  transition:
+    width var(--dusk) var(--ease-dawn) 0.15s,
+    margin-right var(--dusk) var(--ease-dawn) 0.15s;
+}
+
+.section-label.is-visible::before {
+  width: 1.5rem;
+  margin-right: 0.6rem;
 }
 
 .section-title {
@@ -382,16 +416,17 @@ html:not(.dark) .icon-moon {
   border-radius: 50%;
   background: #22c55e;
   box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
-  animation: pulse 2s ease-in-out infinite;
+  animation: breathe 6s var(--ease-sun) infinite;
 }
 
-@keyframes pulse {
+/* The dot breathes slowly, about one breath every 6s. */
+@keyframes breathe {
   0%,
   100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.45;
   }
 }
 
@@ -522,9 +557,6 @@ html:not(.dark) .icon-moon {
   font-weight: 400;
   white-space: nowrap;
   letter-spacing: 0.02em;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease;
 }
 
 .badge-icon {
@@ -628,14 +660,24 @@ html:not(.dark) .icon-moon {
   margin-bottom: var(--space-2xl);
 }
 
-/* The glow sets below the photo and rises back over it, dimmer low and brighter high. */
-@keyframes avatar-sun {
-  0%,
-  100% {
-    box-shadow: 0 -8px 22px -6px color-mix(in srgb, var(--color-accent) 38%, transparent);
+/* The photo's glow keeps the same day as the button: low left at dawn, high at noon, low right at
+   dusk, gone through the night. */
+@keyframes avatar-day {
+  0% {
+    box-shadow: -10px 10px 22px -8px color-mix(in srgb, var(--color-accent) 0%, transparent);
   }
-  50% {
-    box-shadow: 0 8px 22px -6px color-mix(in srgb, var(--color-accent) 12%, transparent);
+  12% {
+    box-shadow: -9px -2px 22px -6px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  }
+  40% {
+    box-shadow: 0 -10px 24px -6px color-mix(in srgb, var(--color-accent) 40%, transparent);
+  }
+  68% {
+    box-shadow: 9px -2px 22px -6px color-mix(in srgb, var(--color-accent) 22%, transparent);
+  }
+  80%,
+  100% {
+    box-shadow: 10px 10px 22px -8px color-mix(in srgb, var(--color-accent) 0%, transparent);
   }
 }
 
@@ -643,14 +685,7 @@ html:not(.dark) .icon-moon {
   width: 96px;
   flex-shrink: 0;
   border-color: var(--color-accent);
-  animation: avatar-sun 22s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cv-header-avatar {
-    animation: none;
-    box-shadow: 0 0 22px -6px color-mix(in srgb, var(--color-accent) 25%, transparent);
-  }
+  animation: avatar-day var(--day) linear infinite;
 }
 
 .cv-name-row {
@@ -660,9 +695,9 @@ html:not(.dark) .icon-moon {
   gap: var(--space-sm) var(--space-lg);
 }
 
-/* The button is the plain card surface with solid type; all its light lives in the 1px border. A
-   small sun climbs the left edge, crosses the top, sets down the right and rests through a short
-   night: one day every 16s, every 6s on hover or focus, cross-faded so the speed never jumps. */
+/* One day for everything that loops: the sun climbs the left edge, crosses the top, sets down the
+   right and rests through a short night. The keyframes are spaced unevenly and run linear, so the
+   sun keeps a steady pace with no pause at each point. */
 @property --sun-x {
   syntax: '<percentage>';
   inherits: false;
@@ -675,7 +710,7 @@ html:not(.dark) .icon-moon {
   initial-value: 120%;
 }
 
-@keyframes day-arc {
+@keyframes day {
   0% {
     --sun-x: -25%;
     --sun-y: 120%;
@@ -736,13 +771,15 @@ html:not(.dark) .icon-moon {
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   mask-composite: exclude;
-  animation: day-arc 16s linear infinite;
+  animation: day var(--day) linear infinite;
   transition: opacity 0.6s ease;
 }
 
+/* The button is the plain card surface with all its light in the 1px border. Hover or focus
+   cross-fades to a faster day, so the speed never jumps. */
 .download-cta::after {
   opacity: 0;
-  animation-duration: 6s;
+  animation-duration: var(--day-hover);
 }
 
 .download-cta:is(:hover, :focus-visible) {
@@ -770,17 +807,6 @@ html:not(.dark) .icon-moon {
 /* SVG user units: 3 of the icon's 24 come to about 2px at the button's text size. */
 .download-cta:is(:hover, :focus-visible) .download-arrow {
   transform: translateY(3px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .download-cta::before,
-  .download-cta::after {
-    display: none;
-  }
-
-  .download-cta .download-arrow {
-    transition: none;
-  }
 }
 
 .cv-contact-item {
@@ -845,20 +871,6 @@ html:not(.dark) .icon-moon {
   margin-bottom: var(--space-4xl);
 }
 
-/* A soft highlight runs round each card's border. Each card starts at a different point and
-   speed, so the grid doesn't read as a row of loading bars. */
-@property --snake-angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
-@keyframes snake {
-  to {
-    --snake-angle: 360deg;
-  }
-}
-
 /* Skill and education cards share one look. They are not links, so nothing changes on hover. */
 .skill-group,
 .education-card {
@@ -869,8 +881,8 @@ html:not(.dark) .icon-moon {
   padding: var(--space-xl);
 }
 
-/* Most of the border is lit, fading up from the tail to the brightest point at the head, with a
-   short dark side trailing it. One turn takes 28-40s. */
+/* The button's sun crosses each card's border in step with it, bigger and softer because the card
+   is bigger. */
 .skill-group::before,
 .education-card::before {
   content: '';
@@ -878,28 +890,18 @@ html:not(.dark) .icon-moon {
   inset: -1px;
   padding: 1px;
   border-radius: inherit;
-  background: conic-gradient(
-    from var(--snake-angle),
-    transparent 0deg 95deg,
-    color-mix(in srgb, var(--color-accent) 12%, transparent) 160deg,
-    color-mix(in srgb, var(--color-accent) 35%, transparent) 260deg,
-    color-mix(in srgb, var(--color-accent) 75%, transparent) 335deg,
-    transparent 360deg
+  background: radial-gradient(
+    circle 120px at var(--sun-x) var(--sun-y),
+    color-mix(in srgb, var(--color-accent) 75%, transparent),
+    color-mix(in srgb, var(--color-accent) 18%, transparent) 60%,
+    transparent 100%
   );
   mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   mask-composite: exclude;
-  animation: snake var(--snake-duration, 32s) linear infinite;
-  animation-delay: var(--snake-delay, 0s);
+  animation: day var(--day) linear infinite;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .skill-group::before,
-  .education-card::before {
-    display: none;
-  }
 }
 
 .skill-group-name {
@@ -1402,6 +1404,21 @@ html:not(.dark) .icon-moon {
   color: var(--color-text);
 }
 
+/* Underline sweep: on hover or focus a 1px line draws under the contact and footer links from
+   left to right, like light crossing the word. */
+.cv-contact a,
+.footer-link {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0% 1px no-repeat;
+  transition:
+    color 0.2s ease,
+    background-size 0.45s var(--ease-dawn);
+}
+
+.cv-contact a:is(:hover, :focus-visible),
+.footer-link:is(:hover, :focus-visible) {
+  background-size: 100% 1px;
+}
+
 /* ============================================
    Blog
    ============================================ */
@@ -1856,13 +1873,43 @@ p:has(.published) {
 }
 
 /* ============================================
+   Reduced motion
+   ============================================ */
+
+/* Nothing loops and nothing makes an entrance; state changes are instant. The photo keeps a still
+   glow so the header looks the same, only not moving. */
+@media (prefers-reduced-motion: reduce) {
+  .download-cta::before,
+  .download-cta::after,
+  .skill-group::before,
+  .education-card::before {
+    display: none;
+  }
+
+  .cv-header-avatar {
+    animation: none;
+    box-shadow: 0 0 22px -6px color-mix(in srgb, var(--color-accent) 25%, transparent);
+  }
+
+  .availability-dot {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+/* ============================================
    Light-theme text contrast
    ============================================ */
 
 /* Amber text on the cream background is about 3:1, under the 4.5:1 needed for small text. In the
    light theme, links and role summaries switch to ink, with amber kept as the underline, and the
    small amber labels use the darker amber. */
-html:not(.dark) :is(.prose, .profile-summary, .cv-contact, .experience-highlights, .outside-card) a {
+html:not(.dark) :is(.prose, .profile-summary, .experience-highlights, .outside-card) a {
   color: var(--color-heading);
   font-weight: 600;
   text-decoration: underline;
@@ -1871,8 +1918,27 @@ html:not(.dark) :is(.prose, .profile-summary, .cv-contact, .experience-highlight
   text-underline-offset: 3px;
 }
 
-html:not(.dark) :is(.prose, .profile-summary, .cv-contact, .experience-highlights, .outside-card) a:hover {
+html:not(.dark) :is(.prose, .profile-summary, .experience-highlights, .outside-card) a:hover {
   color: var(--color-accent-hover);
+}
+
+/* The contact links keep their amber underline at rest, drawn as a background so the sweep can run
+   over it: on hover or focus an ink line crosses the amber one. */
+html:not(.dark) .cv-contact a {
+  color: var(--color-heading);
+  font-weight: 600;
+  padding-bottom: 1px;
+  background-image:
+    linear-gradient(currentColor, currentColor), linear-gradient(var(--color-accent), var(--color-accent));
+  background-size:
+    0% 2px,
+    100% 2px;
+}
+
+html:not(.dark) .cv-contact a:is(:hover, :focus-visible) {
+  background-size:
+    100% 2px,
+    100% 2px;
 }
 
 html:not(.dark) .experience-summary {
@@ -1977,10 +2043,13 @@ html:not(.dark) :is(.cv-title, .section-label, .experience-number) {
     display: none !important;
   }
 
-  /* Ensure animations don't interfere */
+  /* Paper never waits for an entrance, and the label rules stay hidden. */
   [data-animate] {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+  }
+
+  .section-label::before {
+    display: none;
   }
 
   .page-break {

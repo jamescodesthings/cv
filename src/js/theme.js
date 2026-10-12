@@ -1,33 +1,53 @@
 (function () {
-  var toggle = document.getElementById('darkModeToggle');
   var root = document.documentElement;
 
+  // Loaded in <head>, so the theme and the js class are set before the first paint. The js class
+  // lets the CSS hide sections for their entrance only when this script is running to show them.
+  root.classList.add('js');
+
   function setTheme(dark) {
-    if (dark) {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
+    root.classList.toggle('dark', dark);
     try {
       localStorage.setItem('theme', dark ? 'dark' : 'light');
     } catch (e) {}
   }
 
-  // Default to dark; respect saved preference or system preference
+  // Default to dark; respect saved preference or system preference. ?dark=true forces dark.
   var saved = null;
   try {
     saved = localStorage.getItem('theme');
   } catch (e) {}
-  var prefersDark = saved === 'dark' || (!saved && !window.matchMedia('(prefers-color-scheme: light)').matches);
-  setTheme(prefersDark);
+  var forced = new URLSearchParams(window.location.search).get('dark') === 'true';
+  setTheme(forced || saved === 'dark' || (!saved && !window.matchMedia('(prefers-color-scheme: light)').matches));
 
-  toggle.addEventListener('click', function () {
-    setTheme(!root.classList.contains('dark'));
-  });
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggle = document.getElementById('darkModeToggle');
 
-  // Scroll-triggered animations
-  var animateEls = document.querySelectorAll('[data-animate]');
-  if ('IntersectionObserver' in window) {
+    function label() {
+      toggle.setAttribute(
+        'aria-label',
+        root.classList.contains('dark') ? 'Switch to light mode' : 'Switch to dark mode',
+      );
+    }
+
+    if (toggle) {
+      label();
+      toggle.addEventListener('click', function () {
+        // The orbit and the page colours only animate once the visitor has asked for a change.
+        root.classList.add('theme-motion');
+        setTheme(!root.classList.contains('dark'));
+        label();
+      });
+    }
+
+    // Sections fade in, and each section label draws its rule, the first time they scroll into view.
+    var els = document.querySelectorAll('[data-animate], .section-label');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -37,25 +57,10 @@
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -40px 0px',
-      },
+      { threshold: 0, rootMargin: '0px 0px -40px 0px' },
     );
-
-    animateEls.forEach(function (el) {
+    els.forEach(function (el) {
       observer.observe(el);
     });
-  } else {
-    // Fallback: show everything immediately
-    animateEls.forEach(function (el) {
-      el.classList.add('is-visible');
-    });
-  }
-
-  // Check query param for dark
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('dark') === 'true') {
-    setTheme(true);
-  }
+  });
 })();
