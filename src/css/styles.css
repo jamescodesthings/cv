@@ -1419,6 +1419,19 @@ html:not(.dark) .hero::before {
   background-size: 100% 1px;
 }
 
+/* The footer links are small type; an invisible band above and below makes them a 44px target. */
+.footer-link {
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 44px;
+  transform: translateY(-50%);
+}
+
 /* ============================================
    Blog
    ============================================ */
@@ -1769,14 +1782,105 @@ p:has(.published) {
     align-items: flex-start;
   }
 
+  /* The footer stacks on the same left edge as the sections above it. */
+  .site-footer {
+    padding-inline: var(--space-lg);
+  }
+
   .footer-inner {
     flex-direction: column;
-    text-align: center;
-    gap: var(--space-sm);
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .footer-cv {
+    justify-content: flex-start;
   }
 
   .experience-employer {
     font-size: var(--text-h2);
+  }
+}
+
+/* Phones: the header stacks down one left edge (photo, name, button, title, then one contact per
+   line with the icons in a column), and the vw-based headings get fixed sizes so they stay above
+   body text. */
+@media (max-width: 600px) {
+  .theme-toggle {
+    position: absolute;
+    top: 7px;
+    right: var(--space-md);
+  }
+
+  .back-nav {
+    padding-right: calc(var(--space-md) + 52px);
+  }
+
+  .cv-header-grid {
+    gap: var(--space-lg);
+  }
+
+  .cv-name-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .cv-name {
+    font-size: 2.5rem;
+  }
+
+  .download-cta {
+    min-height: 44px;
+  }
+
+  .cv-title {
+    margin-top: var(--space-md);
+  }
+
+  .cv-contact {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .cv-contact-item {
+    display: flex;
+    gap: var(--space-sm);
+    min-width: 0;
+  }
+
+  .cv-contact-item a {
+    overflow-wrap: anywhere;
+  }
+
+  /* The dot sits centred in a 1em box, the width of the icons above it. */
+  .cv-contact .availability-dot {
+    margin: 0 calc((1em - 8px) / 2);
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .experience-employer {
+    font-size: 1.5rem;
+  }
+
+  .skill-group-name,
+  .education-institution {
+    font-size: 1.25rem;
+  }
+
+  .skill-group,
+  .education-card {
+    padding: var(--space-lg);
+  }
+
+  .qualification {
+    flex-wrap: wrap;
+    column-gap: var(--space-sm);
+    row-gap: 0;
   }
 }
 
