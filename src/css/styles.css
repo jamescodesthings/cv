@@ -406,11 +406,14 @@ html:not(.dark) .icon-moon {
   margin-bottom: 0;
 }
 
-.signature {
-  font-style: italic;
+/* The cover letter signs off with the name in heading colour, set apart from the last paragraph. */
+.prose .signature {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: 600;
+  letter-spacing: 0.01em;
   color: var(--color-heading);
-  margin-top: var(--space-lg);
+  margin-top: var(--space-xl);
 }
 
 /* ============================================
@@ -426,6 +429,14 @@ html:not(.dark) .icon-moon {
   line-height: 1.75;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-sm);
+}
+
+/* The intro leads the page: larger, in heading colour, on a narrower measure than the body. */
+.profile-summary .leader {
+  max-width: 60ch;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-heading);
 }
 
 .experience-list {
@@ -2099,6 +2110,17 @@ html:not(.dark) :is(.cv-title, .section-label, .experience-number) {
 
   .profile-summary p {
     line-height: 1.55;
+  }
+
+  .profile-summary .leader {
+    max-width: none;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .prose .signature {
+    margin-top: var(--space-md);
+    font-size: 0.9rem;
   }
 
   .skills-meta {
