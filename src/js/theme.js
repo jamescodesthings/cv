@@ -5,8 +5,21 @@
   // lets the CSS hide sections for their entrance only when this script is running to show them.
   root.classList.add('js');
 
+  // The browser bars take the page background. The two media-query tags in the templates cover the
+  // first paint; once the theme is chosen here they become one tag for the theme actually showing.
+  function setThemeColor(dark) {
+    document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+      meta.remove();
+    });
+    var meta = document.createElement('meta');
+    meta.name = 'theme-color';
+    meta.content = dark ? '#090b12' : '#faf8f4';
+    document.head.appendChild(meta);
+  }
+
   function setTheme(dark) {
     root.classList.toggle('dark', dark);
+    setThemeColor(dark);
     try {
       localStorage.setItem('theme', dark ? 'dark' : 'light');
     } catch (e) {}
