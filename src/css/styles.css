@@ -701,7 +701,7 @@ html:not(.dark) .icon-moon {
 
 .download-cta::after {
   opacity: 0;
-  animation-duration: 0.75s;
+  animation-duration: 1.5s;
 }
 
 .download-cta:is(:hover, :focus-visible) {
@@ -1340,7 +1340,7 @@ html:not(.dark) .icon-moon {
   gap: 0 0.6em;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   letter-spacing: 0.05em;
 }
 
@@ -1351,7 +1351,7 @@ html:not(.dark) .icon-moon {
 .footer-link {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   text-decoration: none;
   letter-spacing: 0.05em;
   transition: color 0.2s;
