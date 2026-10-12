@@ -1,20 +1,8 @@
 <footer class="site-footer">
   <div class="footer-inner">
-    <img
-      src="assets/logo/logo.svg"
-      alt="codesthings"
-      class="footer-logo footer-logo--light"
-      width="160"
-      loading="lazy"
-    />
-    <img
-      src="assets/logo/logo-dark.svg"
-      alt=""
-      class="footer-logo footer-logo--dark"
-      width="160"
-      loading="lazy"
-      aria-hidden="true"
-    />
+    <span class="footer-logo" role="img" aria-label="codesthings"
+      ><%- include('logo', { variant: 'wordmark', size: 26 }) %></span
+    >
     <p class="footer-cv">
       <a href="./assets/<%= encodeURIComponent(sidebar.name) %>.pdf" class="footer-link">
         <span class="cv-icon"><%- include('../../assets/svg/cv.svg') %></span>View CV

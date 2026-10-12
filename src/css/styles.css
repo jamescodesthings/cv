@@ -1351,21 +1351,25 @@ html:not(.dark) .hero::before {
 }
 
 .footer-logo {
+  display: block;
   max-width: 160px;
-  height: auto;
+  color: var(--color-text);
   opacity: 0.85;
 }
 
-.footer-logo--dark {
-  display: none;
-}
-
-.dark .footer-logo--light {
-  display: none;
-}
-
-.dark .footer-logo--dark {
+.logo {
   display: block;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.logo__accent {
+  stroke: var(--color-accent);
+}
+
+.logo__dot {
+  fill: var(--color-accent);
 }
 
 .footer-copy {

@@ -8,9 +8,9 @@ Static assets used by the website. During the build, these are copied to the out
 
 A headshot of James Macmillan at 1024x1024px, suitable for cropping to a circle. Used on the homepage as the profile photo.
 
-### logo.png / logo-dark.png
+### Logo
 
-The "codesthings." wordmark in landscape orientation. `logo.png` has dark grey text with an orange-red accent dot (for light backgrounds); `logo-dark.png` has white text with a cyan-blue accent dot (for dark backgrounds). SVG and PNG variants of all logo files also live in `logo/` - prefer `logo/logo.svg` and `logo/logo-dark.svg` for web use. See `docs/logo.md` and `docs/logo-usage.md` for full details.
+The footer wordmark is the inline `src/templates/sections/logo.ejs`, copied from base-website, so it follows the theme. Keep it in step with base-website. `favicon.svg`, `favicon.ico` and `apple-touch-icon.png` are also copied from base-website.
 
 ### zipline.gif
 
