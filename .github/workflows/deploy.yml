@@ -1,8 +1,10 @@
 name: Build and Deploy
 
+# Every branch builds the site and the PDFs, so a broken change fails on its branch.
+# Only main publishes.
 on:
   push:
-    branches: [main]
+    branches: ['**']
 
 jobs:
   build-and-deploy:
@@ -20,6 +22,7 @@ jobs:
         run: make pages
 
       - name: Deploy to pages branch
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
