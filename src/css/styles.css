@@ -902,7 +902,8 @@ html:not(.dark) .hero::before {
 /* The button's sun crosses each card's border in step with it, bigger and softer because the card
    is bigger. */
 .skill-group::before,
-.education-card::before {
+.education-card::before,
+.outside-card::before {
   content: '';
   position: absolute;
   inset: -1px;
@@ -969,6 +970,7 @@ html:not(.dark) .hero::before {
 }
 
 .outside-card {
+  position: relative;
   display: flex;
   gap: var(--space-md);
   align-items: flex-start;
@@ -2009,7 +2011,8 @@ p:has(.published) {
   .download-cta::before,
   .download-cta::after,
   .skill-group::before,
-  .education-card::before {
+  .education-card::before,
+  .outside-card::before {
     display: none;
   }
 
@@ -2176,7 +2179,8 @@ html:not(.dark) .experience-summary {
   }
 
   .skill-group::before,
-  .education-card::before {
+  .education-card::before,
+  .outside-card::before {
     display: none;
   }
 
@@ -2199,9 +2203,14 @@ html:not(.dark) .experience-summary {
     gap: var(--space-md);
   }
 
+  /* A hard border, so three columns of short text read as three cards and not as oddly wrapped
+     prose. */
   .outside-card {
-    padding: 0;
+    padding: var(--space-sm) var(--space-md);
     gap: var(--space-sm);
+    border: 1px solid var(--color-border);
+    background: none;
+    box-shadow: none;
   }
 
   .card-icon {
@@ -2211,7 +2220,6 @@ html:not(.dark) .experience-summary {
 
   .project-card,
   .education-card,
-  .outside-card,
   .skill-group {
     box-shadow: none;
     border: none;
