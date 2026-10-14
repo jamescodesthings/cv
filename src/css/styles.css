@@ -2076,13 +2076,16 @@ html:not(.dark) .experience-summary {
    Print Styles
    ============================================ */
 
+/* Paper margins: the top and bottom come from @page, the sides from the padding on .hero-inner and
+   .section-inner, so the theme colour still runs to the paper's edge. */
 @page {
-  margin: 12mm 0;
+  margin: 15mm 0;
   background: var(--color-bg);
 }
 
 @media print {
   :root {
+    --print-margin-x: 18mm;
     --text-display: 1.9rem;
     --text-h1: 1rem;
     --text-h2: 0.85rem;
@@ -2100,7 +2103,7 @@ html:not(.dark) .experience-summary {
   .hero-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: var(--space-xl) var(--space-xl);
+    padding: var(--space-xl) var(--print-margin-x);
   }
 
   .section {
@@ -2110,7 +2113,7 @@ html:not(.dark) .experience-summary {
   }
 
   .section-inner {
-    padding: 0 var(--space-xl);
+    padding: 0 var(--print-margin-x);
   }
 
   .cv-header {
@@ -2262,12 +2265,15 @@ html:not(.dark) .experience-summary {
     display: block;
   }
 
-  /* Each role stays on one page. The 2-page guard in src/pdf.js catches content that no longer
-     fits, so the fix is trimming, not letting a role split. */
+  /* A role may run on to the next page between bullets, so the paper margins can stay generous
+     without leaving the foot of page one empty. Its header, summary and badges stay with its first
+     bullet, and no bullet splits. The page guard in src/pdf.js still catches content that no longer
+     fits, and the fix then is trimming. */
   .experience-entry {
     border: none;
     padding: 0;
     margin-bottom: var(--space-lg);
+    break-inside: auto;
   }
 
   .experience-entry:last-child {
