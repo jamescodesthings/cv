@@ -818,12 +818,12 @@ html:not(.dark) .hero::before {
   outline-offset: 3px;
 }
 
-.download-cta .download-arrow {
+.download-cta .cv-icon path:nth-child(n + 2) {
   transition: transform 0.2s ease;
 }
 
 /* SVG user units: 3 of the icon's 24 come to about 2px at the button's text size. */
-.download-cta:is(:hover, :focus-visible) .download-arrow {
+.download-cta:is(:hover, :focus-visible) .cv-icon path:nth-child(n + 2) {
   transform: translateY(3px);
 }
 

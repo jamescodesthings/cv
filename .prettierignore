@@ -13,3 +13,6 @@ raw/
 
 # Tooling scratch
 .superpowers/
+
+# Vendored from the resources repo
+shared/

@@ -1,0 +1,14 @@
+<%
+  // Thin-line 24px icon from shared/icons (vendored from the resources repo), drawn in currentColor.
+  // className is the sizing class the stylesheet already knows: inline-icon, badge-icon-svg or card-icon.
+%><svg
+  class="<%= typeof className === 'undefined' ? 'inline-icon' : className %>"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.75"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+><%- iconInner(name) %></svg>

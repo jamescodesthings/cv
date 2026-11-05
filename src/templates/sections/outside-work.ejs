@@ -5,7 +5,7 @@
   <div class="outside-grid">
     <% sidebar.outside.items.forEach(item => { %>
     <div class="outside-card">
-      <%- include('../icons/' + item.icon) %>
+      <%- include('icon', { name: item.icon, className: 'card-icon' }) %>
       <div>
         <h3 class="outside-title"><%= item.title %></h3>
         <p><%- item.text %></p>
